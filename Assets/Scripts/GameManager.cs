@@ -1,6 +1,5 @@
 using System.IO;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -38,11 +37,13 @@ public class GameManager : MonoBehaviour
     public void Load()
     {
         var filePath = Application.persistentDataPath + "/savefiles.txt";
-
-        using (StreamReader reader = File.OpenText(filePath))
+        if (File.Exists(filePath))
         {
-            var data = reader.ReadToEnd();
-            JsonUtility.FromJsonOverwrite(data, saveFile);
+            using (StreamReader reader = File.OpenText(filePath))
+            {
+                var data = reader.ReadToEnd();
+                JsonUtility.FromJsonOverwrite(data, saveFile);
+            }
         }
     }
 }
