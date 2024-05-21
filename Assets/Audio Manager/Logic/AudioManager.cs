@@ -18,5 +18,8 @@ public class AudioManager : MonoBehaviour
 
         // If no duplicate -> Set instance to this class
         Instance = this;
+
+        // Prevent this class from being destroyed
+        DontDestroyOnLoad(this.gameObject);
     }
 }
