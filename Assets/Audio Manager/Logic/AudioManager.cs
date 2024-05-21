@@ -2,6 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Enum holding all sound options.
+/// For now placeholders
+/// </summary>
+public enum Sounds
+{
+    First,
+    Second,
+    Third
+}
+
+
 public class AudioManager : MonoBehaviour
 {
     #region Editor Settings
@@ -33,8 +45,7 @@ public class AudioManager : MonoBehaviour
 
     #endregion
 
-
-
+    // When script is loaded -> Call init logic
     private void Awake()
     {
         // Ensure singleton pattern
@@ -44,11 +55,13 @@ public class AudioManager : MonoBehaviour
         ValidateSources();
     }
 
+    // First Frame -> Start internal logic
     private void Start()
     {
         // Start Background Music
         StartCoroutine(BackgroundMusicRoutine());
     }
+
 
     #region Singleton Pattern
     // Static Access (Can only be set from inside the class) -> Property
@@ -127,9 +140,117 @@ public class AudioManager : MonoBehaviour
     {
         return _effectsSource is not null;
     }
+    
+    /// <summary>
+    /// Selects and returns a clip based on enum param.
+    /// </summary>
+    /// <param name="sound"></param>
+    /// <returns></returns>
+    private AudioClip SelectClip(Sounds sound)
+    {
+        // Audio Clip -> Selection to play
+        AudioClip selection = null;
+
+        // Switch based on sound (select sound)
+        switch(sound)
+        {
+            case Sounds.First:
+            // Select audio ...
+            selection = null;
+            break;
+
+            case Sounds.First:
+            // Select audio ...
+            selection = null;
+            break;
+
+            case Sounds.First:
+            // Select audio ...
+            selection = null;
+            break;
+
+            default:
+            Debug.Log("Audio Manager: Sound selection invalid!");
+            break;
+        }
+
+        return selection;
+    }
+    
     #endregion
 
     #region Public Functions
+
+    /// <summary>
+    /// Plays a single sound on a global scale (2D)
+    /// </summary>
+    /// <param name="sound">Which sound to play</param>
+    public void PlaySound2D(Sounds sound)
+    {
+        // End function -> Make sure the effects source is valid
+        if(EffectSourceValid() is false)
+        {
+            return;
+        }
+
+        // Audio Clip -> Selection to play
+        AudioClip selection = SelectClip(sound);
+
+        // Make sure sound is valid
+        if(selection is null)
+        {
+            Debug.Log("Audio Manager: Sound selection invalid!")
+            return;
+        }
+
+        // Play sound
+        _effectsSource.clip = selection;
+        _effectsSource.loop = false;
+        _effectsSource.Play();
+    }
+
+    /// <summary>
+    /// Plays a single sound.
+    /// </summary>
+    /// <param name="sound">Which sound to play</param>
+    /// <param name="volume">Volume multiplier (0 -> 1)</param>
+    public void PlaySingleSound(Sounds sound, float volume = 1.0f)
+    {
+        // End function -> Make sure the source is valid
+        if(EffectSourceValid() is false)
+        {
+            return;
+        }
+
+        // Audio Clip -> Selection to play
+        AudioClip selection = SelectClip(sound);
+
+        // Play single audio
+        _effectsSource.PlayOneShot(selection, volume);
+        _effectsSource.loop = false;
+    }
+
+    /// <summary>
+    /// Plays a single sound at given location.
+    /// </summary>
+    /// <param name="sound">Which sound to play</param>
+    /// <param name="location">Location to play at</param>
+    /// <param name="volume">Volume multiplier (0 -> 1)</param>
+    public void PlaySoundAtLocation(Sounds sound, Vector3 location, float volume = 1.0f)
+    {
+        // End function -> Make sure the source is valid
+        if(EffectSourceValid() is false)
+        {
+            return;
+        }
+
+        // Audio Clip -> Selection to play
+        AudioClip selection = SelectClip(sound);
+
+        // Play sound at location
+        _effectsSource.PlayClipAtPoint(selection, location, volume);
+        _effectsSource.loop = false;
+    }
 
     /// <summary>
     /// Allows and starts background music.
@@ -183,7 +304,7 @@ public class AudioManager : MonoBehaviour
         AudioClip audioClip = null;
 
         // Loop -> While music should play and tracks are available
-        while(_backgroundMusic && _backgroundTracks.Count > 0)
+        while(_backgroundMusic && _backgroundTracks.Count > 0 && MusicSourceValid())
         {
             // Local Member -> Select Random Track
             AudioClip selection = _backgroundTracks[Random.Range(0, _backgroundTracks.Count - 1)];
@@ -198,7 +319,7 @@ public class AudioManager : MonoBehaviour
             _musicSource.Play();
 
             // Debug -> New track selected
-            Debug.Log("Background Music: New track selected!");
+            Debug.Log("Audio Manager: New track selected!");
 
             // Routine Return -> Wait for end of track (+ pause)
             yield return new WaitForSeconds(audioClip.length + _loopPause);
