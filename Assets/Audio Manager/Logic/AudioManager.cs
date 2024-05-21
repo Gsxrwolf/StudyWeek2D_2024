@@ -159,12 +159,12 @@ public class AudioManager : MonoBehaviour
             selection = null;
             break;
 
-            case Sounds.First:
+            case Sounds.Second:
             // Select audio ...
             selection = null;
             break;
 
-            case Sounds.First:
+            case Sounds.Third:
             // Select audio ...
             selection = null;
             break;
@@ -199,7 +199,7 @@ public class AudioManager : MonoBehaviour
         // Make sure sound is valid
         if(selection is null)
         {
-            Debug.Log("Audio Manager: Sound selection invalid!")
+            Debug.Log("Audio Manager: Sound selection invalid!");
             return;
         }
 
@@ -238,18 +238,11 @@ public class AudioManager : MonoBehaviour
     /// <param name="volume">Volume multiplier (0 -> 1)</param>
     public void PlaySoundAtLocation(Sounds sound, Vector3 location, float volume = 1.0f)
     {
-        // End function -> Make sure the source is valid
-        if(EffectSourceValid() is false)
-        {
-            return;
-        }
-
         // Audio Clip -> Selection to play
         AudioClip selection = SelectClip(sound);
 
         // Play sound at location
-        _effectsSource.PlayClipAtPoint(selection, location, volume);
-        _effectsSource.loop = false;
+        AudioSource.PlayClipAtPoint(selection, location, volume);
     }
 
     /// <summary>
