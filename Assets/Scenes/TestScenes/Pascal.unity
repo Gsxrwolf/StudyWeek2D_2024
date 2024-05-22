@@ -999,6 +999,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Karen
       objectReference: {fileID: 0}
+    - target: {fileID: 4521361661304661310, guid: 673238ac5b6163d4089274aa87874681, type: 3}
+      propertyPath: damage
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8219859352603332495, guid: 673238ac5b6163d4089274aa87874681, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.343

@@ -12,6 +12,8 @@ public class AttackState : State
 
     private KarenBehavior context;
 
+    public float damage;
+
     public override void Enter(KarenBehavior _context)
     {
         context = _context;
@@ -34,7 +36,7 @@ public class AttackState : State
             if (hit.collider.CompareTag(context.playerTag))
             {
                 Debug.Log("Damage");
-                //hit.collider.gameObject.GetComponent<PlayerController>().DealDamage();
+                //hit.collider.gameObject.GetComponent<PlayerController>().DealDamage(damage);
             }
         }
     }
