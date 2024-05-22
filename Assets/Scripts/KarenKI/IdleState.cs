@@ -9,10 +9,10 @@ public class IdleState : State
 
     public LayerMask mask;
 
-    public override void Enter()
+    public override void Enter(KarenBehavior _context)
     {
-        mask = Behavior.viewMask;
-        InvokeRepeating("MoveInRandomDirection", 0, 1);
+        mask = _context.viewMask;
+        InvokeRepeating("MoveInRandomDirection", 2.0f, 1.0f);
     }
     private void MoveInRandomDirection()
     {
@@ -29,23 +29,28 @@ public class IdleState : State
         }
         moveDirection = randomDirection;
     }
-    public override void Do()
+    public override void Do(KarenBehavior _context)
     {
-        rb.velocity = moveDirection * speed * Time.deltaTime;
-        RaycastHit2D hit = Physics2D.Raycast(Behavior.transform.position, moveDirection, Behavior.viewDistance, mask);
+        _context.rb.velocity = moveDirection * _context.speed;
+        
+    }
+    public override void FixedDo(KarenBehavior _context)
+    {
+    }
+    public override void CheckState(KarenBehavior _context)
+    {
+        RaycastHit2D hit = Physics2D.Raycast(_context.transform.position, moveDirection, _context.viewDistance, mask);
         Debug.DrawLine(transform.position, hit.point, Color.red);
         if (hit.collider != null)
         {
-            if (hit.collider.CompareTag(KarenBehavior.playerTag))
+            if (hit.collider.CompareTag(_context.playerTag))
             {
-                isComplete = true;
+                _context.SwitchState(_context.followState);
             }
         }
     }
-    public override void FixedDo()
+    public override void Exit(KarenBehavior _context)
     {
     }
-    public override void Exit()
-    {
-    }
+
 }

@@ -4,17 +4,19 @@ using UnityEngine;
 
 public class AttackState : State
 {
-    public override void Enter()
-    {
-        isComplete = false;
-    }
-    public override void Do()
+    public override void Enter(KarenBehavior _context)
     {
     }
-    public override void FixedDo()
+    public override void Do(KarenBehavior _context)
     {
     }
-    public override void Exit()
+    public override void FixedDo(KarenBehavior _context)
+    {
+    }
+    public override void CheckState(KarenBehavior _context)
+    {
+    }
+    public override void Exit(KarenBehavior _context)
     {
     }
 }

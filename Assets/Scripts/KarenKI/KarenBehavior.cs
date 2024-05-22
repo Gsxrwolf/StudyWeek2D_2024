@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class KarenBehavior : MonoBehaviour
 {
-    public static string playerTag = "Player";
-    private GameObject player;
+    public string playerTag = "Player";
+    public GameObject player;
 
     public IdleState idleState;
     public FollowState followState;
@@ -16,31 +16,34 @@ public class KarenBehavior : MonoBehaviour
     [SerializeField] public float speed;
     [SerializeField] public float viewDistance;
     [SerializeField] public LayerMask viewMask;
-    private Rigidbody2D rb;
+    [SerializeField] public float attackRange;
+    public Rigidbody2D rb;
     private SpriteRenderer sr;
 
     void Start()
     {
         player = GameObject.FindWithTag(playerTag);
         rb = GetComponent<Rigidbody2D>();
+        sr = GetComponent<SpriteRenderer>();
+
+
         curState = idleState;
-        curState.Enter();
+        curState.Enter(this);
     }
 
-    // Update is called once per frame
     void Update()
     {
-        curState.Do();
-        if(curState.isComplete)
-        {
-            SelectState();
-        }
-        
+        curState.Do(this);
+        curState.CheckState(this);
+
+        RotateLeftRight();
     }
 
-    private void SelectState()
+    public void SwitchState(State _newState)
     {
-        curState.Enter();
+        curState.Exit(this);
+        curState = _newState;
+        curState.Enter(this);
     }
 
     private void RotateLeftRight()
