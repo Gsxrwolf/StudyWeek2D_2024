@@ -12,6 +12,7 @@ public class FollowState : State
     }
     public override void Do(KarenBehavior _context)
     {
+        Debug.Log("Follow");
         playerPos = _context.player.transform.position;
 
         moveDirection = playerPos - _context.transform.position;

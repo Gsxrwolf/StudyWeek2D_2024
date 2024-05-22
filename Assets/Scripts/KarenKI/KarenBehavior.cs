@@ -5,7 +5,7 @@ using UnityEngine;
 public class KarenBehavior : MonoBehaviour
 {
     public string playerTag = "Player";
-    public GameObject player;
+    [HideInInspector] public GameObject player;
 
     public IdleState idleState;
     public FollowState followState;
@@ -13,12 +13,12 @@ public class KarenBehavior : MonoBehaviour
     private State curState;
 
 
-    [SerializeField] public float speed;
+    [SerializeField] public float walkSpeed;
     [SerializeField] public float viewDistance;
     [SerializeField] public LayerMask viewMask;
     [SerializeField] public float attackRange;
-    public Rigidbody2D rb;
-    private SpriteRenderer sr;
+    [HideInInspector] public Rigidbody2D rb;
+    [HideInInspector] public SpriteRenderer sr;
 
     void Start()
     {
