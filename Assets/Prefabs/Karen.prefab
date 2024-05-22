@@ -188,9 +188,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTag: Player
   player: {fileID: 0}
+  spawner: {fileID: 0}
   idleState: {fileID: 8756806069808533632}
   followState: {fileID: 8749670616733733862}
   attackState: {fileID: 4521361661304661310}
+  health: 10
   walkSpeed: 1
   viewDistance: 5
   viewMask:
@@ -240,3 +242,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80420821708a48443b0161fc6f5f19c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 1

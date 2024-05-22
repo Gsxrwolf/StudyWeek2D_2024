@@ -7,6 +7,8 @@ public class KarenBehavior : MonoBehaviour
     public string playerTag = "Player";
     [HideInInspector] public GameObject player;
 
+    [HideInInspector] public PoolSpawner spawner;
+
     public IdleState idleState;
     public FollowState followState;
     public AttackState attackState;
