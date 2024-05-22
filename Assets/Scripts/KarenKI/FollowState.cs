@@ -12,12 +12,11 @@ public class FollowState : State
     }
     public override void Do(KarenBehavior _context)
     {
-        Debug.Log("Follow");
         playerPos = _context.player.transform.position;
 
         moveDirection = playerPos - _context.transform.position;
         
-        _context.rb.velocity = moveDirection;
+        _context.rb.velocity = new Vector2(moveDirection.x, _context.rb.velocity.y);
     }
     public override void FixedDo(KarenBehavior _context)
     {

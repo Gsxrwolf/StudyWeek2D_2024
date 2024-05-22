@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class KarenBehavior : MonoBehaviour
 {
+    public string karenTag = "Karen";
     public string playerTag = "Player";
     [HideInInspector] public GameObject player;
-
     [HideInInspector] public PoolSpawner spawner;
 
     public IdleState idleState;
@@ -23,12 +23,14 @@ public class KarenBehavior : MonoBehaviour
     [SerializeField] public float attackRange;
     [HideInInspector] public Rigidbody2D rb;
     [HideInInspector] public SpriteRenderer sr;
+    private Vector3 scale;
 
     void Start()
     {
         player = GameObject.FindWithTag(playerTag);
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
+        scale = transform.localScale;
 
 
         curState = idleState;
@@ -56,11 +58,11 @@ public class KarenBehavior : MonoBehaviour
     {
         if (rb.velocity.x > 0)
         {
-            sr.flipX = true;
+            transform.localScale = new Vector3(scale.x, scale.y, scale.z);
         }
         if (rb.velocity.x < 0)
         {
-            sr.flipX = false;
+            transform.localScale = new Vector3(-scale.x, scale.y, scale.z);
         }
     }
 

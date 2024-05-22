@@ -21,7 +21,6 @@ public class AttackState : State
     }
     public override void Do(KarenBehavior _context)
     {
-        Debug.Log("Attack");
         playerPos = _context.player.transform.position;
     }
     public void AttackEnd()

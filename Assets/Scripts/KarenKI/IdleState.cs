@@ -49,27 +49,37 @@ public class IdleState : State
     }
     public override void Do(KarenBehavior _context)
     {
-        Debug.Log("Idle");
-        _context.rb.velocity = moveDirection * _context.walkSpeed;
+        _context.rb.velocity = new Vector2(moveDirection.x * _context.walkSpeed, _context.rb.velocity.y);
     }
     public override void FixedDo(KarenBehavior _context)
     {
     }
     public override void CheckState(KarenBehavior _context)
     {
-        RaycastHit2D hit = Physics2D.Raycast(_context.transform.position, moveDirection, _context.viewDistance, mask);
-        Debug.DrawLine(transform.position, hit.point, Color.red);
-        Debug.DrawRay(transform.position, hit.point, Color.green);
-        if (hit.collider != null)
+        RaycastHit2D playerHit = Physics2D.Raycast(_context.transform.position + moveDirection, moveDirection, _context.viewDistance);
+        RaycastHit2D karenHit = Physics2D.Raycast(_context.transform.position + moveDirection, moveDirection, _context.viewDistance/4);
+        Debug.DrawRay(_context.transform.position + moveDirection , moveDirection * _context.viewDistance, Color.blue);
+        Debug.DrawRay(_context.transform.position + moveDirection, moveDirection * _context.viewDistance/4, Color.white);
+        if (playerHit.collider != null)
         {
-            if (hit.collider.CompareTag(_context.playerTag))
+            if (playerHit.collider.CompareTag(_context.playerTag))
             {
+                Debug.DrawLine(_context.transform.position + moveDirection, playerHit.point, Color.green, 1f);
                 _context.SwitchState(_context.followState);
+            }
+        }
+        if (karenHit.collider != null)
+        {
+            if (karenHit.collider.CompareTag(_context.karenTag) && !karenHit.collider.gameObject.Equals(_context.gameObject))
+            {
+                Debug.DrawLine(_context.transform.position + moveDirection, karenHit.point, Color.red, 1f);
+                moveDirection = -moveDirection;
             }
         }
     }
     public override void Exit(KarenBehavior _context)
     {
+        CancelInvoke("MoveInRandomDirection");
     }
 
 }

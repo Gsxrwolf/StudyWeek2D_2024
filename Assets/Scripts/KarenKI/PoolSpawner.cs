@@ -32,8 +32,6 @@ public class PoolSpawner : MonoBehaviour
 
     void Update()
     {
-        System.Random rnd = new System.Random();
-        Debug.Log((float)rnd.Next(10, 20)/10);
 
         if (activeEnemyList.Count < maxEnemyAmount)
         {
