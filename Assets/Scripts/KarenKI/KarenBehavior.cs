@@ -12,6 +12,8 @@ public class KarenBehavior : MonoBehaviour
     public AttackState attackState;
     private State curState;
 
+    [SerializeField] private float health = 10.0f;
+
 
     [SerializeField] public float walkSpeed;
     [SerializeField] public float viewDistance;
@@ -36,6 +38,8 @@ public class KarenBehavior : MonoBehaviour
         curState.Do(this);
         curState.CheckState(this);
 
+        CheckHealth();
+
         RotateLeftRight();
     }
 
@@ -56,5 +60,22 @@ public class KarenBehavior : MonoBehaviour
         {
             sr.flipX = false;
         }
+    }
+
+    private void CheckHealth()
+    {
+        if(health <= 0)
+        {
+            Die();
+        }
+    }
+    public void DealDamage(float _damage)
+    {
+        health -= _damage;
+    }
+
+    private void Die()
+    {
+        this.gameObject.SetActive(false);
     }
 }
