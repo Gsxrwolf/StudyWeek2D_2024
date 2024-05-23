@@ -49,12 +49,10 @@ public class ItemEvents : MonoBehaviour
     /// </summary>
     public void ExtraJumpPower(GameObject _player)
     {
-
+        // StartCoroutine(DoubleJumpTimer());
     }
 
     #endregion
-
-
 
     #region Routines
 
@@ -97,7 +95,7 @@ public class ItemEvents : MonoBehaviour
         //_player.Speed = originalSpeed;
     }
 
-    private IEnumerator DoubleSpeedTimer()
+    private IEnumerator DoubleJumpTimer()
     {
         //float originalJP = _player.JumpPower;
 
