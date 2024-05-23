@@ -10,6 +10,16 @@ public abstract class ItemBase : MonoBehaviour
     /// -> Collider must be set to be trigger
 
 
+    // Protected Property -> The item events script contained on player
+    protected ItemEvents _itemEvents { get; private set; }
+
+    // Event -> Called when the script is loaded
+    private void Awake()
+    {
+        // Get the player object
+        GetPlayer();
+    }
+
     // Called whenerver something collides with the item
     private void OnTriggerEnter(Collider other)
     {
@@ -18,6 +28,28 @@ public abstract class ItemBase : MonoBehaviour
         {
             // Call trigger event
             OnItemTrigger(other.gameObject);
+        }
+    }
+
+    // Called when the script is loaded. Use to get the player obj
+    private void GetPlayer()
+    {
+        // Find the player (Remove item if invalid)
+        GameObject _player = GameObject.FindWithTag("Player");
+        if(_player is null)
+        {
+            // Deytroy item
+            Destroy(this.gameObject);
+            return;
+        }
+
+        // Fint the items event script (Remove item if invalid)
+        _itemEvents = _player.GetComponent<ItemEvents>();
+        if(_itemEvents is null)
+        {
+            // Deytroy item
+            Destroy(this.gameObject);
+            return;
         }
     }
 
