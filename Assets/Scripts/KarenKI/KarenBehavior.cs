@@ -76,10 +76,11 @@ public class KarenBehavior : MonoBehaviour
     public void DealDamage(float _damage)
     {
         health -= _damage;
+        Debug.Log("GotDamaged");
     }
 
     private void Die()
     {
-        this.gameObject.SetActive(false);
+        spawner.DespawnEnemy(this.gameObject);
     }
 }

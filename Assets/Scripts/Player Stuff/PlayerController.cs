@@ -7,12 +7,16 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     // Editor Settings
+    [SerializeField] private float _health = 20;
+    [SerializeField] private float _damage = 2;
     [SerializeField] private float _speed = 100;
     [SerializeField] private float _jumpForce = 10;
+    [SerializeField] private float _attackRange = 1;
     [SerializeField] private Rigidbody2D _rigidbody;
     [SerializeField] private LayerMask _layerMask;
     [SerializeField] private GameObject _spriteObject = null;
     [SerializeField] private SpriteRenderer _spriteRenderer = null;
+    [SerializeField] private string _karenTag = "Karen";
 
     // Private Values
     private float _horizontal;
@@ -60,6 +64,11 @@ public class PlayerController : MonoBehaviour
 
         // Start background routine
         StartCoroutine(GroundCheck());
+    }
+
+    private void Update()
+    {
+        CheckHealth();
     }
 
     private void FixedUpdate()
@@ -128,9 +137,35 @@ public class PlayerController : MonoBehaviour
     {
         if(_cooldown is false)
         {
+            RaycastHit2D hit = Physics2D.Raycast(_spriteRenderer.flipY ? Vector3.left + transform.position : Vector3.right + transform.position , _spriteRenderer.flipY ? Vector3.left : Vector3.right, _attackRange);
+            Debug.DrawLine(transform.position, hit.point,Color.magenta,1f);
+            if (hit.collider != null)
+            {
+                if (hit.collider.CompareTag(_karenTag))
+                {
+                    hit.collider.gameObject.GetComponent<KarenBehavior>().DealDamage(_damage);
+                }
+            }
             Debug.Log("Attack");
             StartCoroutine(AttackCooldown());
         }
+    }
+    private void CheckHealth()
+    {
+        if (_health <= 0)
+        {
+            Die();
+        }
+    }
+    public void DealDamage(float _damage)
+    {
+        _health -= _damage;
+        Debug.Log("GotDamaged");
+    }
+
+    private void Die()
+    {
+        Debug.Log("tod");
     }
 
     #endregion
