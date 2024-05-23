@@ -9,7 +9,9 @@ public enum MyScenes
     Credits,
     Lvl1,
     Lvl2,
-    Lvl3
+    Lvl3,
+    WinScreen, 
+    LooseScreen
 }
 public class SceneLoader : MonoBehaviour
 {

@@ -18,15 +18,18 @@ public class GameManager : MonoBehaviour
     #endregion
 
     public SaveFile saveFile;
+    string filePath;
 
     private void Start()
     {
-        Load();
+        filePath = Application.persistentDataPath + "/savefiles.txt";
+        if (File.Exists(filePath))
+            Load();
     }
 
     public void Save()
     {
-        var filePath = Application.persistentDataPath + "/savefiles.txt";
+
         var data = JsonUtility.ToJson(saveFile);
 
         using (StreamWriter writer = File.CreateText(filePath))
@@ -36,7 +39,6 @@ public class GameManager : MonoBehaviour
     }
     public void Load()
     {
-        var filePath = Application.persistentDataPath + "/savefiles.txt";
         if (File.Exists(filePath))
         {
             using (StreamReader reader = File.OpenText(filePath))
