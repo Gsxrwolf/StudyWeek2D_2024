@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 3320203652188500044}
   - component: {fileID: 2384762884337253751}
   m_Layer: 0
-  m_Name: P_Item
+  m_Name: P_HealthTimer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0b13c7acb25a5648953b91b0d1ef6f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _type: 1
+  _type: 2
   _spriteRenderer: {fileID: 8011863194862311417}
   _spriteMapping:
   - Type: 1
