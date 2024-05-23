@@ -67,23 +67,23 @@ public class Item : ItemBase
         switch(_type)
         {
             case ItemType.Health:
-                _itemEvents.AddHealth();
+                _itemEvents.AddHealth(triggerer);
                 break;
 
             case ItemType.HealthTimer:
-                _itemEvents.AddHealthOverTime();
+                _itemEvents.AddHealthOverTime(triggerer);
                 break;
 
             case ItemType.DoubleDamage:
-                _itemEvents.DoubleDamage();
+                _itemEvents.DoubleDamage(triggerer);
                 break;
 
             case ItemType.ExtraSpeed:
-                _itemEvents.ExtraSpeed();
+                _itemEvents.ExtraSpeed(triggerer);
                 break;
 
             case ItemType.ExtraJumpPower:
-                _itemEvents.ExtraJumpPower();
+                _itemEvents.ExtraJumpPower(triggerer);
                 break;
 
             default:
