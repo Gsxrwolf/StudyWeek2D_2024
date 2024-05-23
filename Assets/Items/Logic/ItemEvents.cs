@@ -4,11 +4,8 @@ using UnityEngine;
 
 public class ItemEvents : MonoBehaviour
 {
-    // Private Memeber -> Health Component
-    // [SerializeField] private HealthComponent _healthComponent;
-
     // Private Memeber -> Player Controller
-    // [SerializeField] private PlayerController _playerController;
+    [SerializeField] private PlayerController _playerController;
 
     #region Public Functions
 
@@ -17,7 +14,8 @@ public class ItemEvents : MonoBehaviour
     /// </summary>
     public void AddHealth(GameObject _player)
     {
-        // _healthComponent.AddHealth(5);
+        // Negative damage should be + health
+        _playerController.DealDamage(-5);
     }
 
     /// <summary>
@@ -25,7 +23,7 @@ public class ItemEvents : MonoBehaviour
     /// </summary>
     public void AddHealthOverTime(GameObject _player)
     {
-        // StartCoroutine(HealthTimer());
+        StartCoroutine(HealthTimer());
     }
 
     /// <summary>
@@ -33,7 +31,7 @@ public class ItemEvents : MonoBehaviour
     /// </summary>
     public void DoubleDamage(GameObject _player)
     {
-        // StartCoroutine(DoubleDamageTimer());
+        StartCoroutine(DoubleDamageTimer());
     }
 
     /// <summary>
@@ -41,7 +39,7 @@ public class ItemEvents : MonoBehaviour
     /// </summary>
     public void ExtraSpeed(GameObject _player)
     {
-        // StartCoroutine(DoubleSpeedTimer());
+        StartCoroutine(DoubleSpeedTimer());
     }
 
     /// <summary>
@@ -49,7 +47,7 @@ public class ItemEvents : MonoBehaviour
     /// </summary>
     public void ExtraJumpPower(GameObject _player)
     {
-        // StartCoroutine(DoubleJumpTimer());
+        StartCoroutine(DoubleJumpTimer());
     }
 
     #endregion
@@ -62,8 +60,7 @@ public class ItemEvents : MonoBehaviour
 
         while(count < 5)
         {
-            // _healthComponent.AddHealth(1);
-            
+            _playerController.DealDamage(-1);            
 
             // Wait for one sec
             yield return new WaitForSeconds(1);
