@@ -79,7 +79,7 @@ public class ItemEvents : MonoBehaviour
 
         //_player.Damage = originalDamage * 2;
 
-        yield return WaitForSeconds(5);
+        yield return new WaitForSeconds(5);
 
         //_player.Damage = originalDamage;
     }
@@ -90,7 +90,7 @@ public class ItemEvents : MonoBehaviour
 
         //_player.Speed = originalSpeed * 2;
 
-        yield return WaitForSeconds(3);
+        yield return new WaitForSeconds(3);
 
         //_player.Speed = originalSpeed;
     }
@@ -101,7 +101,7 @@ public class ItemEvents : MonoBehaviour
 
         //_player.JumpPower = originalJP * 2;
 
-        yield return WaitForSeconds(3);
+        yield return new WaitForSeconds(3);
 
         //_player.JumpPower = originalJP;
     }
