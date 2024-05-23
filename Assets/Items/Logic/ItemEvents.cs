@@ -1,108 +1,129 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ItemEvents : MonoBehaviour
 {
-    // Private Memeber -> Player Controller
-    [SerializeField] private PlayerController _playerController;
+    // Constant Values
+    private const int HealthIncrement = 5;
+    private const int HealthOverTimeIncrement = 1;
+    private const int HealthOverTimeDuration = 5;
+    private const float DoubleDamageDuration = 5f;
+    private const float DoubleSpeedDuration = 3f;
+    private const float DoubleJumpDuration = 3f;
+
+    // Gets the player controller from game object
+    private PlayerController GetController(GameObject player)
+    {
+        return player.GetComponent<PlayerController>();
+    }
 
     #region Public Functions
 
     /// <summary>
-    /// Adds 5 health to the player.
+    /// Adds a fixed amount of health to the player. (5 health points)
     /// </summary>
-    public void AddHealth(GameObject _player)
+    /// <param name="player">The player GameObject.</param>
+    public void AddHealth(GameObject player)
     {
-        // Negative damage should be + health
-        _playerController.DealDamage(-5);
+        var playerController = GetController(player);
+        if (playerController == null) return;
+
+        playerController.DealDamage(-HealthIncrement);
     }
 
     /// <summary>
-    /// Adds 1 health / sec for 5 seconds.
+    /// Gradually adds health to the player over a period of time. (5 health points over 5 seconds)
     /// </summary>
-    public void AddHealthOverTime(GameObject _player)
+    /// <param name="player">The player GameObject.</param>
+    public void AddHealthOverTime(GameObject player)
     {
-        StartCoroutine(HealthTimer());
+        var playerController = GetController(player);
+        if (playerController == null) return;
+
+        StartCoroutine(HealthTimer(playerController));
     }
 
     /// <summary>
-    /// Dubles the players damage for 5 seconds.
+    /// Temporarily doubles the player's damage for a fixed duration. (5 seconds)
     /// </summary>
-    public void DoubleDamage(GameObject _player)
+    /// <param name="player">The player GameObject.</param>
+    public void DoubleDamage(GameObject player)
     {
-        StartCoroutine(DoubleDamageTimer());
+        var playerController = GetController(player);
+        if (playerController == null) return;
+
+        StartCoroutine(DoubleDamageTimer(playerController));
     }
 
     /// <summary>
-    /// Doubles the players speed for 3 seconds
+    /// Temporarily doubles the player's speed for a fixed duration. (3 seconds)
     /// </summary>
-    public void ExtraSpeed(GameObject _player)
+    /// <param name="player">The player GameObject.</param>
+    public void ExtraSpeed(GameObject player)
     {
-        StartCoroutine(DoubleSpeedTimer());
+        var playerController = GetController(player);
+        if (playerController == null) return;
+
+        StartCoroutine(DoubleSpeedTimer(playerController));
     }
 
     /// <summary>
-    /// Doubles the players jump power for 3 seconds
+    /// Temporarily doubles the player's jump power for a fixed duration. (3 seconds)
     /// </summary>
-    public void ExtraJumpPower(GameObject _player)
+    /// <param name="player">The player GameObject.</param>
+    public void ExtraJumpPower(GameObject player)
     {
-        StartCoroutine(DoubleJumpTimer());
+        var playerController = GetController(player);
+        if (playerController == null) return;
+
+        StartCoroutine(DoubleJumpTimer(playerController));
     }
 
     #endregion
 
     #region Routines
 
-    private IEnumerator HealthTimer()
+    private IEnumerator HealthTimer(PlayerController playerController)
     {
         int count = 0;
 
-        while(count < 5)
+        while (count < HealthOverTimeDuration)
         {
-            _playerController.DealDamage(-1);            
-
-            // Wait for one sec
+            playerController.DealDamage(-HealthOverTimeIncrement);
             yield return new WaitForSeconds(1);
-
-            // Increase counter
             count++;
         }
     }
 
-    private IEnumerator DoubleDamageTimer()
+    private IEnumerator DoubleDamageTimer(PlayerController playerController)
     {
-        //int originalDamage = _player.Damage;
+        float originalDamage = playerController._damage;
+        playerController._damage = originalDamage * 2;
 
-        //_player.Damage = originalDamage * 2;
+        yield return new WaitForSeconds(DoubleDamageDuration);
 
-        yield return new WaitForSeconds(5);
-
-        //_player.Damage = originalDamage;
+        playerController._damage = originalDamage;
     }
 
-    private IEnumerator DoubleSpeedTimer()
+    private IEnumerator DoubleSpeedTimer(PlayerController playerController)
     {
-        //float originalSpeed = _player.Speed;
+        float originalSpeed = playerController._speed;
+        playerController._speed = originalSpeed * 2;
 
-        //_player.Speed = originalSpeed * 2;
+        yield return new WaitForSeconds(DoubleSpeedDuration);
 
-        yield return new WaitForSeconds(3);
-
-        //_player.Speed = originalSpeed;
+        playerController._speed = originalSpeed;
     }
 
-    private IEnumerator DoubleJumpTimer()
+    private IEnumerator DoubleJumpTimer(PlayerController playerController)
     {
-        //float originalJP = _player.JumpPower;
+        float originalJumpForce = playerController._jumpForce;
+        playerController._jumpForce = originalJumpForce * 2;
 
-        //_player.JumpPower = originalJP * 2;
+        yield return new WaitForSeconds(DoubleJumpDuration);
 
-        yield return new WaitForSeconds(3);
-
-        //_player.JumpPower = originalJP;
+        playerController._jumpForce = originalJumpForce;
     }
-
 
     #endregion
 }

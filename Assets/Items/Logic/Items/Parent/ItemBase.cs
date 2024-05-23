@@ -17,7 +17,7 @@ public abstract class ItemBase : MonoBehaviour
     private void Awake()
     {
         // Get the player object
-        GetPlayer();
+        GetEventScript();
     }
 
     // Called whenerver something collides with the item
@@ -31,20 +31,12 @@ public abstract class ItemBase : MonoBehaviour
         }
     }
 
-    // Called when the script is loaded. Use to get the player obj
-    private void GetPlayer()
+    // Called when the script is loaded. Used to get the events script from owner
+    private void GetEventScript()
     {
-        // Find the player (Remove item if invalid)
-        GameObject _player = GameObject.FindWithTag("Player");
-        if(_player is null)
-        {
-            // Deytroy item
-            Destroy(this.gameObject);
-            return;
-        }
-
         // Fint the items event script (Remove item if invalid)
-        _itemEvents = _player.GetComponent<ItemEvents>();
+        _itemEvents = gameObject.GetComponent<ItemEvents>();
+
         if(_itemEvents is null)
         {
             // Deytroy item
