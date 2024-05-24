@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5089190722426944217}
   m_Layer: 0
   m_Name: P_Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -74,14 +74,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7f008c9046d9ea4e940ed0184deb0a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _health: 20
+  _damage: 2
   _speed: 100
   _jumpForce: 10
+  _attackRange: 1
   _rigidbody: {fileID: 9150922824405449672}
   _layerMask:
     serializedVersion: 2
     m_Bits: 8192
   _spriteObject: {fileID: 4899799467129619676}
   _spriteRenderer: {fileID: 3999876984220845796}
+  _karenTag: Karen
 --- !u!114 &5089190722426944217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,7 +177,7 @@ GameObject:
   - component: {fileID: 489963375742267870}
   m_Layer: 0
   m_Name: Sprite Obj
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
