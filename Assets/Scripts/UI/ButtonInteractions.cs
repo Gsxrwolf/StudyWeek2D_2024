@@ -5,6 +5,13 @@ using UnityEngine;
 
 public class ButtonInteractions : MonoBehaviour
 {
+    private void Start()
+    {
+        PoolSpawner.LevelFinished += nextLevelIndex =>
+        {
+            Invoke("MainMenuDecline", 2);
+        };
+    }
     public void OnSettingsClick()
     {
         SceneLoader.Instance.LoadScene(MyScenes.Settings);

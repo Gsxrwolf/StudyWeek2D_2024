@@ -25,6 +25,11 @@ public class GameManager : MonoBehaviour
         filePath = Application.persistentDataPath + "/savefiles.txt";
         if (File.Exists(filePath))
             Load();
+
+        PoolSpawner.LevelFinished += nextLevelIndex =>
+        {
+            saveFile.currentLevel = nextLevelIndex + 1;
+        };
     }
 
     public void Save()

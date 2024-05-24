@@ -1,8 +1,7 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 public class PoolSpawner : MonoBehaviour
 {
@@ -10,6 +9,8 @@ public class PoolSpawner : MonoBehaviour
     [HideInInspector] public GameObject player;
 
     [SerializeField] GameObject enemyPrefab;
+
+    [SerializeField] bool endless = false;
 
     [SerializeField] int enemyStartAmount;
     [SerializeField] int enemyRefillAmount;
@@ -24,15 +25,23 @@ public class PoolSpawner : MonoBehaviour
 
     private float timer;
     [SerializeField] public float spawnRate;
+
+    public static event Action<int> LevelFinished;
+    [SerializeField] private int nextLevelIndex;
+
     void Start()
     {
+        if (!endless)
+        {
+            enemyStartAmount = maxEnemyAmount;
+            enemyRefillAmount = 0;
+        }
         player = GameObject.FindWithTag(playerTag);
         InstantiateNewEnemies(enemyStartAmount);
     }
 
     void Update()
     {
-
         if (activeEnemyList.Count < maxEnemyAmount)
         {
             timer += Time.deltaTime;
@@ -41,6 +50,10 @@ public class PoolSpawner : MonoBehaviour
                 timer = 0;
                 SpawnNewEnemy();
             }
+        }
+        else
+        {
+            LevelFinished.Invoke(nextLevelIndex);
         }
     }
 
@@ -79,7 +92,10 @@ public class PoolSpawner : MonoBehaviour
 
         _enemy.transform.position = cachePosition;
         _enemy.SetActive(false);
-        cacheEnemyList.Add(_enemy);
+        if (endless)
+        {
+            cacheEnemyList.Add(_enemy);
+        }
     }
 
     private Vector3 GetNewSpawnPosition()
