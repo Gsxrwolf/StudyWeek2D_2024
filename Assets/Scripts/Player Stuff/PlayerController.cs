@@ -20,6 +20,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private string _karenTag = "Karen";
     [SerializeField] private GameObject raycastOrigin;
 
+    // Animation
+    [SerializeField] private Animator _animator;
+
     // Private Values
     private float _horizontal;
     private float _rayLength = 2f;
@@ -78,6 +81,9 @@ public class PlayerController : MonoBehaviour
     {
         // Move Player
         _rigidbody.velocity = new Vector2((_horizontal * (_speed * 2)) * Time.deltaTime, _rigidbody.velocity.y);
+
+        // Update animator
+        _animator.SetBool("Walk", _horizontal != 0);
     }
 
     #endregion
@@ -123,7 +129,7 @@ public class PlayerController : MonoBehaviour
         if(_horizontal == 1.0f)
         {
             // No Flip
-            _spriteRenderer.flipY = false;
+            _spriteRenderer.flipX = false;
             return;
         }
 
@@ -131,14 +137,14 @@ public class PlayerController : MonoBehaviour
         if(_horizontal == -1.0f)
         {
             // Flip
-            _spriteRenderer.flipY = true;
+            _spriteRenderer.flipX = true;
             return;
         }
     }
 
     public void Attack(InputAction.CallbackContext context)
     {
-        if(_cooldown is false)
+        if(_cooldown is false && _grounded)
         {
             RaycastHit2D hit = Physics2D.Raycast(_spriteRenderer.flipY ? Vector3.left + transform.position : Vector3.right + transform.position , _spriteRenderer.flipY ? Vector3.left : Vector3.right, _attackRange);
             Debug.DrawLine(transform.position, hit.point,Color.magenta,1f);
@@ -150,6 +156,11 @@ public class PlayerController : MonoBehaviour
                 }
             }
             Debug.Log("Attack");
+
+            // Animation
+            _animator.SetTrigger("Attack");
+
+
             StartCoroutine(AttackCooldown());
         }
     }
@@ -195,11 +206,18 @@ public class PlayerController : MonoBehaviour
             {
                 _rigidbody.gravityScale = originalScale;
                 _grounded = true;
+
+                // Inform animator
+                _animator.SetBool("Falling", false);
+
             }
             else
             {
                 _rigidbody.gravityScale = originalScale * 2;
                 _grounded = false;
+
+                // Inform animator
+                _animator.SetBool("Falling", true);
             }
 
             // Wait for end of frame
