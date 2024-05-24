@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -72,7 +73,7 @@ public class KarenBehavior : MonoBehaviour
 
     private void SelectRandomClothes()
     {
-        System.Random rnd = new System.Random();
+        System.Random rnd = new System.Random((int)DateTime.UtcNow.Ticks);
         anim.SetInteger("RandomAnimation", rnd.Next(11));
     }
 
