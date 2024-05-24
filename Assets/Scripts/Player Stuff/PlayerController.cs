@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.ShaderGraph.Internal;
@@ -26,8 +27,8 @@ public class PlayerController : MonoBehaviour
     private bool _grounded = false;
     private float _prevHorizontal;
     private bool _cooldown;
-    
 
+    public static event Action<int> OnHealthChange;
 
 
 
@@ -162,12 +163,14 @@ public class PlayerController : MonoBehaviour
     public void DealDamage(float _damage)
     {
         _health -= _damage;
+        OnHealthChange?.Invoke((int)_health);
         Debug.Log("GotDamaged");
     }
 
     private void Die()
     {
-        Debug.Log("tod");
+        SceneLoader.Instance.UnloadScene(MyScenes.IngameUI);
+        SceneLoader.Instance.LoadScene(MyScenes.LooseScreen);
     }
 
     #endregion

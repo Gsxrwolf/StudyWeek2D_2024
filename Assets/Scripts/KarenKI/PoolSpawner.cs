@@ -11,6 +11,7 @@ public class PoolSpawner : MonoBehaviour
     [SerializeField] GameObject enemyPrefab;
 
     [SerializeField] bool endless = false;
+    private bool spawningDone = false;
 
     [SerializeField] int enemyStartAmount;
     [SerializeField] int enemyRefillAmount;
@@ -32,6 +33,7 @@ public class PoolSpawner : MonoBehaviour
 
     void Start()
     {
+        spawningDone = false;
         if (!endless)
         {
             enemyStartAmount = maxEnemyAmount;
@@ -43,20 +45,30 @@ public class PoolSpawner : MonoBehaviour
 
     void Update()
     {
-        if (activeEnemyList.Count < maxEnemyAmount)
+        if (endless)
         {
-            timer += Time.deltaTime;
-            if (timer > spawnRate)
+            if (activeEnemyList.Count < maxEnemyAmount)
             {
-                timer = 0;
-                SpawnNewEnemy();
+                timer += Time.deltaTime;
+                if (timer > spawnRate)
+                {
+                    timer = 0;
+                    SpawnNewEnemy();
+                }
             }
         }
         else
         {
-            if (activeEnemyList.Count == 0)
-            { 
-                LevelFinished?.Invoke(nextLevelIndex);
+            if(cacheEnemyList.Count != 0)
+            {
+                SpawnNewEnemy();
+            }
+            else
+            {
+                if (activeEnemyList.Count == 0)
+                {
+                    LevelFinished?.Invoke(nextLevelIndex);
+                }
             }
         }
     }
@@ -64,7 +76,7 @@ public class PoolSpawner : MonoBehaviour
     public void SpawnNewEnemy()
     {
         GameObject newEnemy;
-        if (cacheEnemyList.Count <= 0)
+        if (cacheEnemyList.Count <= 0 && endless)
         {
             InstantiateNewEnemies(enemyRefillAmount);
         }
@@ -125,7 +137,7 @@ public class PoolSpawner : MonoBehaviour
 
         spawnPosition = spawnPosition + playerPos;
 
-        if(Physics2D.Raycast(spawnPosition, Vector2.down, 10, groundLayer))
+        if (Physics2D.Raycast(spawnPosition, Vector2.down, 10, groundLayer))
         {
             return spawnPosition;
         }

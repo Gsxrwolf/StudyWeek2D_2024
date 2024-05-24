@@ -11,7 +11,8 @@ public enum MyScenes
     Lvl2,
     Lvl3,
     WinScreen, 
-    LooseScreen
+    LooseScreen,
+    IngameUI
 }
 public class SceneLoader : MonoBehaviour
 {

@@ -29,7 +29,30 @@ public class GameManager : MonoBehaviour
         PoolSpawner.LevelFinished += nextLevelIndex =>
         {
             saveFile.currentLevel = nextLevelIndex;
+            MainMenuDecline();
         };
+    }
+    public void MainMenuDecline()
+    {
+        switch (saveFile.currentLevel)
+        {
+            case 0:
+                {
+                    SceneLoader.Instance.LoadScene(MyScenes.Lvl1);
+                    break;
+                }
+            case 1:
+                {
+                    SceneLoader.Instance.LoadScene(MyScenes.Lvl2);
+                    break;
+                }
+            case 2:
+                {
+                    SceneLoader.Instance.LoadScene(MyScenes.Lvl3);
+                    break;
+                }
+        }
+        SceneLoader.Instance.LoadScene(MyScenes.IngameUI, UnityEngine.SceneManagement.LoadSceneMode.Additive);
     }
 
     public void Save()

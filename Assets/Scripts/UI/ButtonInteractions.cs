@@ -9,7 +9,11 @@ public class ButtonInteractions : MonoBehaviour
     {
         PoolSpawner.LevelFinished += nextLevelIndex =>
         {
-            Invoke("MainMenuDecline", 2);
+            if(nextLevelIndex == 3)
+            {
+                SceneLoader.Instance.UnloadScene(MyScenes.IngameUI);
+                SceneLoader.Instance.LoadScene(MyScenes.WinScreen);
+            }
         };
     }
     public void OnSettingsClick()
@@ -31,6 +35,7 @@ public class ButtonInteractions : MonoBehaviour
     public void OnBackClick()
     {
         SceneLoader.Instance.LoadScene(MyScenes.MainMenu);
+        SceneLoader.Instance.UnloadScene(MyScenes.IngameUI);
         GameManager.Instance.Save();
     }
 
@@ -41,23 +46,6 @@ public class ButtonInteractions : MonoBehaviour
 
     public void MainMenuDecline()
     {
-        switch (GameManager.Instance.saveFile.currentLevel)
-        {
-            case 0:
-                {
-                    SceneLoader.Instance.LoadScene(MyScenes.Lvl1);
-                    break;
-                }
-            case 1:
-                {
-                    SceneLoader.Instance.LoadScene(MyScenes.Lvl2);
-                    break;
-                }
-            case 2:
-                {
-                    SceneLoader.Instance.LoadScene(MyScenes.Lvl3);
-                    break;
-                }
-        }
+        GameManager.Instance.MainMenuDecline();
     }
 }
