@@ -8,9 +8,9 @@ public class PlayerController : MonoBehaviour
 {
     // Editor Settings
     [SerializeField] private float _health = 20;
-    [SerializeField] private float _damage = 2;
-    [SerializeField] private float _speed = 100;
-    [SerializeField] private float _jumpForce = 10;
+    public float _damage = 2; // Public weil access für items
+    public float _speed = 100; // Public weil access für items
+    public float _jumpForce = 10; // Public weil access für items
     [SerializeField] private float _attackRange = 1;
     [SerializeField] private Rigidbody2D _rigidbody;
     [SerializeField] private LayerMask _layerMask;
@@ -99,7 +99,7 @@ public class PlayerController : MonoBehaviour
         // Perform on input start
         if (context.started)
         {
-            // Check if char is on gro�nd
+            // Check if char is on gro�nd
             if (_grounded)
             {
                 // Apply jump force
