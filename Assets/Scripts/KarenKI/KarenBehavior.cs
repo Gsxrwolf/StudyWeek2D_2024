@@ -26,7 +26,7 @@ public class KarenBehavior : MonoBehaviour
     private Animator anim;
     private Vector3 scale;
 
-    void Start()
+    void OnEnable()
     {
         player = GameObject.FindWithTag(playerTag);
         rb = GetComponent<Rigidbody2D>();

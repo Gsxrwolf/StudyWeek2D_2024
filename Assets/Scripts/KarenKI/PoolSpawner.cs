@@ -53,7 +53,7 @@ public class PoolSpawner : MonoBehaviour
         }
         else
         {
-            LevelFinished.Invoke(nextLevelIndex);
+            LevelFinished?.Invoke(nextLevelIndex);
         }
     }
 
