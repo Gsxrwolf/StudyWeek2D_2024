@@ -17,6 +17,19 @@ public class FollowState : State
         moveDirection = playerPos - _context.transform.position;
         
         _context.rb.velocity = new Vector2(moveDirection.x, _context.rb.velocity.y);
+        RotateLeftRight(_context);
+    }
+
+    private void RotateLeftRight(KarenBehavior _context)
+    {
+        if (_context.rb.velocity.x > 0)
+        {
+            transform.localScale = new Vector3(_context.scale.x, _context.scale.y, _context.scale.z);
+        }
+        if (_context.rb.velocity.x < 0)
+        {
+            transform.localScale = new Vector3(-_context.scale.x, _context.scale.y, _context.scale.z);
+        }
     }
     public override void FixedDo(KarenBehavior _context)
     {

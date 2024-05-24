@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8782060798163585597}
   - component: {fileID: 6552206951332549924}
   - component: {fileID: 3293050819839266476}
+  - component: {fileID: 8129144053568535955}
   - component: {fileID: 6736267675198625276}
   - component: {fileID: 1409622632214110691}
   - component: {fileID: 8756806069808533632}
@@ -139,6 +140,51 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!61 &8129144053568535955
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1181303498752793518}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.032292426, y: 0.607439}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.49, y: 1.7}
+    newSize: {x: 1, y: 2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.935706, y: 0.48512208}
+  m_EdgeRadius: 0
 --- !u!70 &6736267675198625276
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -202,6 +248,7 @@ MonoBehaviour:
   attackRange: 2
   rb: {fileID: 0}
   sr: {fileID: 0}
+  scale: {x: 0, y: 0, z: 0}
 --- !u!114 &8756806069808533632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -243,4 +290,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80420821708a48443b0161fc6f5f19c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackCooldown: 2
   damage: 1

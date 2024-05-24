@@ -25,7 +25,7 @@ public class KarenBehavior : MonoBehaviour
     [HideInInspector] public Rigidbody2D rb;
     [HideInInspector] public SpriteRenderer sr;
     private Animator anim;
-    private Vector3 scale;
+    public Vector3 scale;
 
     void OnEnable()
     {
@@ -49,7 +49,6 @@ public class KarenBehavior : MonoBehaviour
 
         CheckHealth();
 
-        RotateLeftRight();
     }
 
     public void SwitchState(State _newState)
@@ -59,17 +58,7 @@ public class KarenBehavior : MonoBehaviour
         curState.Enter(this);
     }
 
-    private void RotateLeftRight()
-    {
-        if (rb.velocity.x > 0)
-        {
-            transform.localScale = new Vector3(scale.x, scale.y, scale.z);
-        }
-        if (rb.velocity.x < 0)
-        {
-            transform.localScale = new Vector3(-scale.x, scale.y, scale.z);
-        }
-    }
+    
 
     private void SelectRandomClothes()
     {
