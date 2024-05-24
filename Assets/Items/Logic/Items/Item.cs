@@ -34,7 +34,7 @@ public class Item : ItemBase
     /// Called when the item is loaded. Will perform some checkups
     /// and then initialize the item.
     /// </summary>
-    private void Awake()
+    private void Start()
     {
         // End function -> Make sure that the item type is valid
         if(_type == ItemType.None)
@@ -63,8 +63,19 @@ public class Item : ItemBase
     /// <param name="triggerer"></param>
     protected override void OnItemTrigger(GameObject triggerer)
     {
+
+        // Find the items event script (Remove item if invalid)
+        _itemEvents = triggerer.GetComponent<ItemEvents>();
+
+        if (_itemEvents is null)
+        {
+            // Deytroy item
+            Destroy(this.gameObject);
+            return;
+        }
+
         // Call event based on item type
-        switch(_type)
+        switch (_type)
         {
             case ItemType.Health:
                 _itemEvents.AddHealth(triggerer);
@@ -91,6 +102,9 @@ public class Item : ItemBase
                 Destroy(gameObject);
                 break;
         }
+
+
+        gameObject.SetActive(false);
     }
 
     /// <summary>

@@ -51,12 +51,12 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         // Gte collider
-        _collider = _spriteObject.GetComponent<CapsuleCollider2D>();
+        _collider = gameObject.GetComponent<CapsuleCollider2D>();
 
         // Create collider if invalid
         if (_collider is null)
         {
-            _collider = _spriteObject.AddComponent<CapsuleCollider2D>();
+            _collider = gameObject.AddComponent<CapsuleCollider2D>();
         }
 
         // Calc ray length
