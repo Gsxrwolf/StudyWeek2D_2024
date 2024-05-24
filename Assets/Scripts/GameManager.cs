@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
 
         PoolSpawner.LevelFinished += nextLevelIndex =>
         {
-            saveFile.currentLevel = nextLevelIndex + 1;
+            saveFile.currentLevel = nextLevelIndex;
         };
     }
 

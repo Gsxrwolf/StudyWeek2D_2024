@@ -17,14 +17,16 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject _spriteObject = null;
     [SerializeField] private SpriteRenderer _spriteRenderer = null;
     [SerializeField] private string _karenTag = "Karen";
+    [SerializeField] private GameObject raycastOrigin;
 
     // Private Values
     private float _horizontal;
-    private float _rayLength;
+    private float _rayLength = 2f;
     private CapsuleCollider2D _collider = null;
     private bool _grounded = false;
     private float _prevHorizontal;
     private bool _cooldown;
+    
 
 
 
@@ -84,9 +86,9 @@ public class PlayerController : MonoBehaviour
     private bool CheckGrounded()
     {
         // Ray to ground. Make sure player is not aired
-        var hitInfo = Physics2D.Raycast(transform.position, Vector2.down, _rayLength, _layerMask);
+        var hitInfo = Physics2D.Raycast(raycastOrigin.transform.position, Vector2.down, _rayLength, _layerMask);
 
-        Debug.DrawRay(this.gameObject.transform.position, Vector2.down, Color.red);
+        Debug.DrawLine(raycastOrigin.transform.position, hitInfo.point, Color.red, 2f);
         return hitInfo.collider;
     }
 
@@ -207,7 +209,7 @@ public class PlayerController : MonoBehaviour
     {
         _cooldown = true;
 
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(1);
 
         _cooldown = false;
     }

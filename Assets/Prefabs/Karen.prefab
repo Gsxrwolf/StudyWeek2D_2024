@@ -199,7 +199,7 @@ MonoBehaviour:
   viewMask:
     serializedVersion: 2
     m_Bits: 251
-  attackRange: 1
+  attackRange: 2
   rb: {fileID: 0}
   sr: {fileID: 0}
 --- !u!114 &8756806069808533632

@@ -17,15 +17,11 @@ public class AttackState : State
     public override void Enter(KarenBehavior _context)
     {
         context = _context;
-        attacking = true;
+        CheckHit();
     }
     public override void Do(KarenBehavior _context)
     {
         playerPos = _context.player.transform.position;
-    }
-    public void AttackEnd()
-    {
-        attacking = false;
     }
     public void CheckHit()
     {
@@ -35,7 +31,7 @@ public class AttackState : State
             if (hit.collider.CompareTag(context.playerTag))
             {
                 Debug.Log("Damage");
-                //hit.collider.gameObject.GetComponent<PlayerController>().DealDamage(damage);
+                hit.collider.gameObject.GetComponent<PlayerController>().DealDamage(damage);
             }
         }
     }
