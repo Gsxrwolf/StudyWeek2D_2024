@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 9150922824405449672}
   - component: {fileID: 5928986617893515986}
   - component: {fileID: 5089190722426944217}
+  - component: {fileID: 8987048339695312877}
   m_Layer: 0
   m_Name: P_Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -74,14 +75,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7f008c9046d9ea4e940ed0184deb0a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _health: 20
+  _damage: 2
   _speed: 100
   _jumpForce: 10
+  _attackRange: 1
   _rigidbody: {fileID: 9150922824405449672}
   _layerMask:
     serializedVersion: 2
     m_Bits: 8192
   _spriteObject: {fileID: 4899799467129619676}
   _spriteRenderer: {fileID: 3999876984220845796}
+  _karenTag: Karen
 --- !u!114 &5089190722426944217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -160,6 +165,41 @@ MonoBehaviour:
   m_DefaultActionMap: Player Mapping
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!70 &8987048339695312877
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3817622247994523408}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 1, y: 1}
+  m_Direction: 0
 --- !u!1 &4899799467129619676
 GameObject:
   m_ObjectHideFlags: 0
@@ -170,10 +210,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8214574686209541355}
   - component: {fileID: 3999876984220845796}
-  - component: {fileID: 489963375742267870}
   m_Layer: 0
   m_Name: Sprite Obj
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -245,38 +284,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!70 &489963375742267870
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4899799467129619676}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 2}
-  m_Direction: 0
