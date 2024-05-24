@@ -23,22 +23,26 @@ public class KarenBehavior : MonoBehaviour
     [SerializeField] public float attackRange;
     [HideInInspector] public Rigidbody2D rb;
     [HideInInspector] public SpriteRenderer sr;
+    private Animator anim;
     private Vector3 scale;
 
-    void Start()
+    void OnEnable()
     {
         player = GameObject.FindWithTag(playerTag);
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
         scale = transform.localScale;
 
 
         curState = idleState;
         curState.Enter(this);
+        SelectRandomClothes();
     }
 
     void Update()
     {
+        anim.SetFloat("WalkSpeed",Mathf.Abs(rb.velocity.x));
         curState.Do(this);
         curState.CheckState(this);
 
@@ -64,6 +68,12 @@ public class KarenBehavior : MonoBehaviour
         {
             transform.localScale = new Vector3(-scale.x, scale.y, scale.z);
         }
+    }
+
+    private void SelectRandomClothes()
+    {
+        System.Random rnd = new System.Random();
+        anim.SetInteger("RandomAnimation", rnd.Next(11));
     }
 
     private void CheckHealth()
