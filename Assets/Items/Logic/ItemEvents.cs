@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class ItemEvents : MonoBehaviour
@@ -11,7 +12,6 @@ public class ItemEvents : MonoBehaviour
     private const float DoubleDamageDuration = 5f;
     private const float DoubleSpeedDuration = 3f;
     private const float DoubleJumpDuration = 3f;
-
 
     public static event Action<int> BuffStarted;
     public static event Action<int> BuffEnd;

@@ -22,6 +22,7 @@ public class IngameMapping : MonoBehaviour
         PlayerController.OnHealthChange += NewHealth;
         ItemEvents.BuffStarted += ShowBuffs;
         ItemEvents.BuffEnd += HideBuffs;
+        
     }
 
     private void OnDisable()
@@ -85,13 +86,11 @@ public class IngameMapping : MonoBehaviour
                 }
             case 3:
                 {
-                    //speedBuff = GameObject.FindGameObjectWithTag("SpeedBuff");
                     speedBuff.SetActive(false);
                     break;
                 }
             case 4:
                 {
-                    //jumpBuff = GameObject.FindGameObjectWithTag("SpeedBuff");
                     jumpBuff.SetActive(false);
                     break;
                 }
