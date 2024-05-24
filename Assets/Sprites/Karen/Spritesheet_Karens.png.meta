@@ -1,0 +1,1183 @@
+fileFormatVersion: 2
+guid: 6b7bc17677699c448aedf48911f6244c
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Spritesheet_Karens_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1878
+        width: 149
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4439836b6e6b0cc44a11db2d03a56cca
+      internalID: 308282950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_Karens_1
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 1878
+        width: 149
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20a821ccfc5cb5a4d949ef7342d5565d
+      internalID: 1170153336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_Karens_2
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 1878
+        width: 149
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00cfedcf3cd15af43a09f07a458213b0
+      internalID: -975903072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_Karens_3
+      rect:
+        serializedVersion: 2
+        x: 447
+        y: 1878
+        width: 149
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a2cac66adb06b1449152c2027bb1334
+      internalID: -2083516138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_Karens_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1708
+        width: 149
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 651c71a7438ddc0429c336566e4f53f3
+      internalID: -1401933098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_Karens_5
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 1708
+        width: 149
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: feccdebb14dc56e48b875c45b561d27f
+      internalID: 285610881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_Karens_6
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 1708
+        width: 149
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67889f2d738c96f4ca446df9cbb8cb77
+      internalID: 1397344377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_Karens_7
+      rect:
+        serializedVersion: 2
+        x: 447
+        y: 1708
+        width: 149
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0dda76a0a88eb74ba666ff86b028318
+      internalID: 859887111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_Karens_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1538
+        width: 149
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae1d0869cb1da5649955ef243615f861
+      internalID: -1488956368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_Karens_9
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 1538
+        width: 149
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc449f9a369bf624b8bcdd79f976c151
+      internalID: -2137610169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_Karens_10
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 1538
+        width: 149
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb64663bb84608a49a71d253c0d7b680
+      internalID: -1261995855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_Karens_11
+      rect:
+        serializedVersion: 2
+        x: 447
+        y: 1538
+        width: 149
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c47341f31752a2a419ea9d2d15b4adc2
+      internalID: 1360805545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_Karens_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1368
+        width: 149
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d88b21874de1b3e4a81e930c5de47bad
+      internalID: -728587678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_Karens_13
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 1368
+        width: 149
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a19c1b56be42eeb448082985a1954b87
+      internalID: 842900599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_Karens_14
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 1368
+        width: 149
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 625ce589192353142a2d48e2703b118e
+      internalID: -972398694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_Karens_15
+      rect:
+        serializedVersion: 2
+        x: 447
+        y: 1368
+        width: 149
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6eef97be08848e54f81a29d327bc8317
+      internalID: 1530452983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_Karens_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1198
+        width: 149
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a43bc10634558ff43ae3dd82312fe3b0
+      internalID: 1289829829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_Karens_17
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 1198
+        width: 149
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94b6c346109f6154193a6113de29da3e
+      internalID: 311591644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_Karens_18
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 1198
+        width: 149
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 423af3990665d054e8e3a4430dadc1ae
+      internalID: -92836238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_Karens_19
+      rect:
+        serializedVersion: 2
+        x: 447
+        y: 1198
+        width: 149
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6469381f501065a44bfa477f563f03ee
+      internalID: -1362074854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_Karens_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1028
+        width: 149
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01b24f2c85d440240af29eef38e0cc0a
+      internalID: -1218011093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_Karens_21
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 1028
+        width: 149
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e93df69cba7ae074ab6c15dd74c6ace9
+      internalID: 458481040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_Karens_22
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 1028
+        width: 149
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d11a8f7a524e46458e6d93c7ff90beb
+      internalID: 446450673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_Karens_23
+      rect:
+        serializedVersion: 2
+        x: 447
+        y: 1028
+        width: 149
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d611011ceaa6cc4c80abaa8bcd69c78
+      internalID: 1222465498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_Karens_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 858
+        width: 149
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1db9e6a9f9685974d999505cd173b865
+      internalID: 1439274694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_Karens_25
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 858
+        width: 149
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2783cc3d77111e048abfe77fe281edd7
+      internalID: 47314771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_Karens_26
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 858
+        width: 149
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97d9aa286acc6cf40aa9baed3a82e6db
+      internalID: -286887816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_Karens_27
+      rect:
+        serializedVersion: 2
+        x: 447
+        y: 858
+        width: 149
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a45477f742754f745bdb614ad7adf0ad
+      internalID: 1354805410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_Karens_28
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 688
+        width: 149
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c77e0fa37b0827148bca62f80b793e95
+      internalID: -590278933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_Karens_29
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 688
+        width: 149
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4aaf827db59262c4fb67b16a94ada8dc
+      internalID: 2018275973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_Karens_30
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 688
+        width: 149
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 399133f0bd7df7f4bb83095f460e3225
+      internalID: 538047551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_Karens_31
+      rect:
+        serializedVersion: 2
+        x: 447
+        y: 688
+        width: 149
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9451fc607c2ed24fa74072653b31a35
+      internalID: -1303755096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_Karens_32
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 518
+        width: 149
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47b79c347f67092499ecc0a5f55c6083
+      internalID: -1852784311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_Karens_33
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 518
+        width: 149
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebf4c5caf27dfbc46b38cef523ae4d06
+      internalID: -123405995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_Karens_34
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 518
+        width: 149
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5cf8385f20f7f8f40b32fdeed4ac4cf5
+      internalID: 565790054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_Karens_35
+      rect:
+        serializedVersion: 2
+        x: 447
+        y: 518
+        width: 149
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22c03e11fec9e894daff061557e1775d
+      internalID: -365756871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_Karens_36
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 348
+        width: 149
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee26964630fe59f4b97c9bc99643374f
+      internalID: 1515500267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_Karens_37
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 348
+        width: 149
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8ac81d9167c13f48bb01cceab71106d
+      internalID: -1942974868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_Karens_38
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 348
+        width: 149
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c17d837885fe4747b8f2f169f524c0f
+      internalID: -938330670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_Karens_39
+      rect:
+        serializedVersion: 2
+        x: 447
+        y: 348
+        width: 149
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b9fbe02dfc56a0408eb6c8e49cc94fe
+      internalID: 587446703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_Karens_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 178
+        width: 149
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 131052d3acfd4d84bacbc97eabc88232
+      internalID: 2030304218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_Karens_41
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 178
+        width: 149
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a14a530b716c8c4abe8712801a423a7
+      internalID: 2038262001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_Karens_42
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 178
+        width: 149
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ced3db6cc868a48469543d8e2582e564
+      internalID: -2070631748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_Karens_43
+      rect:
+        serializedVersion: 2
+        x: 447
+        y: 178
+        width: 149
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a057969331b7cf143b8ec2066ce9ac43
+      internalID: -1681052848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_Karens_44
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 8
+        width: 149
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee8b98304fa9fe842b797d9f36739485
+      internalID: -121182389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_Karens_45
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 8
+        width: 149
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd197bcec78b7da4d8751d560c127acc
+      internalID: 825105500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_Karens_46
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 8
+        width: 149
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bced8c1a810431a4eb5337070700e7bf
+      internalID: -512220639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_Karens_47
+      rect:
+        serializedVersion: 2
+        x: 447
+        y: 8
+        width: 149
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7e71bd74a1ad5b4bb60a45b7516f435
+      internalID: 1259828803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Spritesheet_Karens_0: 308282950
+      Spritesheet_Karens_1: 1170153336
+      Spritesheet_Karens_10: -1261995855
+      Spritesheet_Karens_11: 1360805545
+      Spritesheet_Karens_12: -728587678
+      Spritesheet_Karens_13: 842900599
+      Spritesheet_Karens_14: -972398694
+      Spritesheet_Karens_15: 1530452983
+      Spritesheet_Karens_16: 1289829829
+      Spritesheet_Karens_17: 311591644
+      Spritesheet_Karens_18: -92836238
+      Spritesheet_Karens_19: -1362074854
+      Spritesheet_Karens_2: -975903072
+      Spritesheet_Karens_20: -1218011093
+      Spritesheet_Karens_21: 458481040
+      Spritesheet_Karens_22: 446450673
+      Spritesheet_Karens_23: 1222465498
+      Spritesheet_Karens_24: 1439274694
+      Spritesheet_Karens_25: 47314771
+      Spritesheet_Karens_26: -286887816
+      Spritesheet_Karens_27: 1354805410
+      Spritesheet_Karens_28: -590278933
+      Spritesheet_Karens_29: 2018275973
+      Spritesheet_Karens_3: -2083516138
+      Spritesheet_Karens_30: 538047551
+      Spritesheet_Karens_31: -1303755096
+      Spritesheet_Karens_32: -1852784311
+      Spritesheet_Karens_33: -123405995
+      Spritesheet_Karens_34: 565790054
+      Spritesheet_Karens_35: -365756871
+      Spritesheet_Karens_36: 1515500267
+      Spritesheet_Karens_37: -1942974868
+      Spritesheet_Karens_38: -938330670
+      Spritesheet_Karens_39: 587446703
+      Spritesheet_Karens_4: -1401933098
+      Spritesheet_Karens_40: 2030304218
+      Spritesheet_Karens_41: 2038262001
+      Spritesheet_Karens_42: -2070631748
+      Spritesheet_Karens_43: -1681052848
+      Spritesheet_Karens_44: -121182389
+      Spritesheet_Karens_45: 825105500
+      Spritesheet_Karens_46: -512220639
+      Spritesheet_Karens_47: 1259828803
+      Spritesheet_Karens_5: 285610881
+      Spritesheet_Karens_6: 1397344377
+      Spritesheet_Karens_7: 859887111
+      Spritesheet_Karens_8: -1488956368
+      Spritesheet_Karens_9: -2137610169
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
