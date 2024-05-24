@@ -19,6 +19,7 @@ public class PoolSpawner : MonoBehaviour
     [SerializeField] Vector3 cachePosition;
 
     [SerializeField] float minEnemySpawnDistance;
+    [SerializeField] private LayerMask groundLayer;
 
     private List<GameObject> activeEnemyList = new List<GameObject>();
     private List<GameObject> cacheEnemyList = new List<GameObject>();
@@ -124,6 +125,14 @@ public class PoolSpawner : MonoBehaviour
 
         spawnPosition = spawnPosition + playerPos;
 
-        return spawnPosition;
+        if(Physics2D.Raycast(spawnPosition, Vector2.down, 10, groundLayer))
+        {
+            return spawnPosition;
+        }
+        else
+        {
+            return GetNewSpawnPosition();
+        }
+
     }
 }

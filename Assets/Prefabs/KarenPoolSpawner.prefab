@@ -47,9 +47,14 @@ MonoBehaviour:
   playerTag: Player
   player: {fileID: 0}
   enemyPrefab: {fileID: 1181303498752793518, guid: 673238ac5b6163d4089274aa87874681, type: 3}
+  endless: 0
   enemyStartAmount: 5
   enemyRefillAmount: 5
   maxEnemyAmount: 10
   cachePosition: {x: 0, y: -1000, z: 0}
   minEnemySpawnDistance: 10
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 8192
   spawnRate: 5
+  nextLevelIndex: 0
