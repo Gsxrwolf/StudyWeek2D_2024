@@ -71,6 +71,7 @@ public class Item : ItemBase
         {
             // Deytroy item
             Destroy(this.gameObject);
+            Debug.Log(triggerer.name);
             return;
         }
 
