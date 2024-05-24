@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Karen
+  - HPBuff
+  - SpeedBuff
+  - JumpBuff
+  - DmgBuff
   layers:
   - Default
   - TransparentFX

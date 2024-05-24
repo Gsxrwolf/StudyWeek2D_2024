@@ -7,16 +7,28 @@ public class IngameMapping : MonoBehaviour
 {
     [SerializeField]
     private GameObject[] healthArray;
+    [SerializeField]
+    private GameObject hpBuff;
+    [SerializeField]
+    private GameObject dmgBuff;
+    [SerializeField]
+    private GameObject speedBuff;
+    [SerializeField]
+    private GameObject jumpBuff;
 
     // Start is called before the first frame update
     void Start()
     {
         PlayerController.OnHealthChange += NewHealth;
+        ItemEvents.BuffStarted += ShowBuffs;
+        ItemEvents.BuffEnd += HideBuffs;
     }
 
     private void OnDisable()
     {
         PlayerController.OnHealthChange -= NewHealth;
+        ItemEvents.BuffStarted -= ShowBuffs;
+        ItemEvents.BuffEnd -= HideBuffs;
     }
 
     private void NewHealth(int _new)
@@ -28,6 +40,61 @@ public class IngameMapping : MonoBehaviour
         for (int i = _new; i < healthArray.Length; i++)
         {
             healthArray[i].SetActive(false);
+        }
+    }
+
+    private void ShowBuffs(int _collectIndex)
+    {
+        switch(_collectIndex)
+        {
+            case 1:
+                {
+                    hpBuff.SetActive(true);
+                    break;
+                }
+            case 2:
+                {
+                    dmgBuff.SetActive(true);
+                    break;
+                }
+            case 3:
+                {
+                    speedBuff.SetActive(true);
+                    break;
+                }
+            case 4:
+                {
+                    jumpBuff.SetActive(true);
+                    break;
+                }
+        }
+    }
+    private void HideBuffs(int _collectIndex)
+    {
+        switch (_collectIndex)
+        {
+            case 1:
+                {
+                    hpBuff.SetActive(false);
+                    break;
+                }
+            case 2:
+                {
+                    dmgBuff.SetActive(false);
+                    break;
+                }
+            case 3:
+                {
+                    //speedBuff = GameObject.FindGameObjectWithTag("SpeedBuff");
+                    speedBuff.SetActive(false);
+                    break;
+                }
+            case 4:
+                {
+                    //jumpBuff = GameObject.FindGameObjectWithTag("SpeedBuff");
+                    jumpBuff.SetActive(false);
+                    break;
+                }
         }
     }
 }

@@ -140,7 +140,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &48088193
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1232,6 +1232,10 @@ MonoBehaviour:
   - {fileID: 1364306998}
   - {fileID: 559623227}
   - {fileID: 213015690}
+  hpBuff: {fileID: 1475804320}
+  dmgBuff: {fileID: 1504776550}
+  speedBuff: {fileID: 48088192}
+  jumpBuff: {fileID: 1597876539}
 --- !u!1 &1297579605
 GameObject:
   m_ObjectHideFlags: 0
@@ -1619,7 +1623,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1475804321
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1694,7 +1698,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1504776551
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1769,7 +1773,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1597876540
 RectTransform:
   m_ObjectHideFlags: 0

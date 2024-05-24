@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -10,6 +11,10 @@ public class ItemEvents : MonoBehaviour
     private const float DoubleDamageDuration = 5f;
     private const float DoubleSpeedDuration = 3f;
     private const float DoubleJumpDuration = 3f;
+
+
+    public static event Action<int> BuffStarted;
+    public static event Action<int> BuffEnd;
 
     // Gets the player controller from game object
     private PlayerController GetController(GameObject player)
@@ -28,6 +33,7 @@ public class ItemEvents : MonoBehaviour
         var playerController = GetController(player);
         if (playerController == null) return;
 
+
         playerController.DealDamage(-HealthIncrement);
     }
 
@@ -39,6 +45,8 @@ public class ItemEvents : MonoBehaviour
     {
         var playerController = GetController(player);
         if (playerController == null) return;
+
+        BuffStarted?.Invoke(1);
 
         StartCoroutine(HealthTimer(playerController));
     }
@@ -52,6 +60,8 @@ public class ItemEvents : MonoBehaviour
         var playerController = GetController(player);
         if (playerController == null) return;
 
+        BuffStarted?.Invoke(2);
+
         StartCoroutine(DoubleDamageTimer(playerController));
     }
 
@@ -64,6 +74,8 @@ public class ItemEvents : MonoBehaviour
         var playerController = GetController(player);
         if (playerController == null) return;
 
+        BuffStarted?.Invoke(3);
+
         StartCoroutine(DoubleSpeedTimer(playerController));
     }
 
@@ -75,6 +87,8 @@ public class ItemEvents : MonoBehaviour
     {
         var playerController = GetController(player);
         if (playerController == null) return;
+
+        BuffStarted?.Invoke(4);
 
         StartCoroutine(DoubleJumpTimer(playerController));
     }
@@ -93,6 +107,7 @@ public class ItemEvents : MonoBehaviour
             yield return new WaitForSeconds(1);
             count++;
         }
+        BuffEnd.Invoke(1);
     }
 
     private IEnumerator DoubleDamageTimer(PlayerController playerController)
@@ -103,6 +118,7 @@ public class ItemEvents : MonoBehaviour
         yield return new WaitForSeconds(DoubleDamageDuration);
 
         playerController._damage = originalDamage;
+        BuffEnd.Invoke(2);
     }
 
     private IEnumerator DoubleSpeedTimer(PlayerController playerController)
@@ -113,6 +129,7 @@ public class ItemEvents : MonoBehaviour
         yield return new WaitForSeconds(DoubleSpeedDuration);
 
         playerController._speed = originalSpeed;
+        BuffEnd.Invoke(3);
     }
 
     private IEnumerator DoubleJumpTimer(PlayerController playerController)
@@ -123,6 +140,7 @@ public class ItemEvents : MonoBehaviour
         yield return new WaitForSeconds(DoubleJumpDuration);
 
         playerController._jumpForce = originalJumpForce;
+        BuffEnd.Invoke(4);
     }
 
     #endregion
