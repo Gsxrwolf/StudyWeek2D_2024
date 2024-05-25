@@ -11,7 +11,6 @@ public class PoolSpawner : MonoBehaviour
     [SerializeField] GameObject enemyPrefab;
 
     [SerializeField] bool endless = false;
-    private bool spawningDone = false;
 
     [SerializeField] int enemyStartAmount;
     [SerializeField] int enemyRefillAmount;
@@ -33,7 +32,6 @@ public class PoolSpawner : MonoBehaviour
 
     void Start()
     {
-        spawningDone = false;
         if (!endless)
         {
             enemyStartAmount = maxEnemyAmount;

@@ -15,7 +15,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _attackRange = 1;
     [SerializeField] private Rigidbody2D _rigidbody;
     [SerializeField] private LayerMask _layerMask;
-    [SerializeField] private GameObject _spriteObject = null;
     [SerializeField] private SpriteRenderer _spriteRenderer = null;
     [SerializeField] private string _karenTag = "Karen";
     [SerializeField] private GameObject raycastOrigin;
