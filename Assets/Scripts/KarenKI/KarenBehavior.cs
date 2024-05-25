@@ -21,6 +21,7 @@ public class KarenBehavior : MonoBehaviour
     [SerializeField] public float walkSpeed;
     [SerializeField] public float viewDistance;
     [SerializeField] public LayerMask viewMask;
+    [SerializeField] public float attackThreshhold;
     [SerializeField] public float attackRange;
     [HideInInspector] public Rigidbody2D rb;
     [HideInInspector] public SpriteRenderer sr;

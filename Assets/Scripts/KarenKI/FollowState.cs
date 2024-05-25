@@ -15,8 +15,11 @@ public class FollowState : State
         playerPos = _context.player.transform.position;
 
         moveDirection = playerPos - _context.transform.position;
+
+        moveDirection.Normalize();
+
         
-        _context.rb.velocity = new Vector2(moveDirection.x, _context.rb.velocity.y);
+        _context.rb.velocity = new Vector2(moveDirection.x * _context.walkSpeed, _context.rb.velocity.y);
         RotateLeftRight(_context);
     }
 
@@ -36,7 +39,7 @@ public class FollowState : State
     }
     public override void CheckState(KarenBehavior _context)
     {
-        if(Vector3.Distance(playerPos, _context.transform.position) < _context.attackRange)
+        if(Vector3.Distance(playerPos, _context.transform.position) < _context.attackThreshhold)
         {
             _context.SwitchState(_context.attackState);
         }

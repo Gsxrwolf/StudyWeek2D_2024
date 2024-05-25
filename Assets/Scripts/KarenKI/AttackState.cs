@@ -28,7 +28,7 @@ public class AttackState : State
     public void CheckHit()
     {
         attacking = true;
-        RaycastHit2D hit = Physics2D.Raycast(context.transform.position + (context.sr.flipX ? Vector3.left : Vector3.right), context.sr.flipX ? Vector3.left : Vector3.right, context.viewDistance / 4f, context.viewMask);
+        RaycastHit2D hit = Physics2D.Raycast(context.transform.position + (context.sr.flipX ? Vector3.left : Vector3.right), context.sr.flipX ? Vector3.left : Vector3.right, context.attackRange, context.viewMask);
         if (hit.collider != null)
         {
             if (hit.collider.CompareTag(context.playerTag))

@@ -245,7 +245,8 @@ MonoBehaviour:
   viewMask:
     serializedVersion: 2
     m_Bits: 251
-  attackRange: 2
+  attackThreshhold: 1.5
+  attackRange: 1
   rb: {fileID: 0}
   sr: {fileID: 0}
   scale: {x: 0, y: 0, z: 0}
