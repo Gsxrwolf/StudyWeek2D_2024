@@ -6,11 +6,31 @@ using UnityEngine;
 /// Enum holding all sound options.
 /// For now placeholders
 /// </summary>
-public enum Sounds
+
+public enum SoundType
 {
-    First,
-    Second,
-    Third
+    HandStamp,
+    ButtonClick
+}
+
+public enum WeaponType
+{
+    Pan,
+    Skateboard,
+    Toy
+}
+
+public enum FoleyType
+{
+    Supermarket,
+    SubUrb,
+    SantaMonica
+}
+
+public enum BackgroundMusicType
+{
+    Chill,
+    Rock
 }
 
 
@@ -43,6 +63,30 @@ public class AudioManager : MonoBehaviour
     // Private Mmeber -> Effects Source
     [SerializeField] private AudioSource _effectsSource;
 
+
+
+    [Space()]
+
+
+    [Header("Sounds")]
+
+
+    [SerializeField] private AudioClip _stamp;
+    [SerializeField] private AudioClip _button;
+    [SerializeField] private AudioClip _ingameMusic;
+    [SerializeField] private AudioClip _menuMusic;
+    [SerializeField] private AudioClip _supermarketFoley;
+    [SerializeField] private AudioClip _suburbFoley;
+    [SerializeField] private AudioClip _pierFoley;
+    [SerializeField] private List<AudioClip> _walkingSounds = new List<AudioClip>();
+    [SerializeField] private List<AudioClip> _damageSounds = new List<AudioClip>();
+    [SerializeField] private List<AudioClip> _karenSounds = new List<AudioClip>();
+    [SerializeField] private List<AudioClip> _karenDamageSounds = new List<AudioClip>();
+    [SerializeField] private List<AudioClip> _itemSounds = new List<AudioClip>();
+    [SerializeField] private List<AudioClip> _panSounds = new List<AudioClip>();
+    [SerializeField] private List<AudioClip> _skateboardSounds = new List<AudioClip>();
+    [SerializeField] private List<AudioClip> _toySounds = new List<AudioClip>();
+
     #endregion
 
     // When script is loaded -> Call init logic
@@ -59,7 +103,7 @@ public class AudioManager : MonoBehaviour
     private void Start()
     {
         // Start Background Music
-        StartCoroutine(BackgroundMusicRoutine());
+        //StartCoroutine(BackgroundMusicRoutine());
     }
 
 
@@ -98,19 +142,19 @@ public class AudioManager : MonoBehaviour
         // 1. Make sure music source valid
         if(_musicSource is null)
         {
-            _musicSource = this.gameObject.AddComponent<AudioSource>();
+            _musicSource = gameObject.AddComponent<AudioSource>();
         }
 
         // 2. Make sure foley source valid
         if(_foleySource is null)
         {
-            _foleySource = this.gameObject.AddComponent<AudioSource>();
+            _foleySource = gameObject.AddComponent<AudioSource>();
         }
 
         // 3. Make sure effects source valid
         if(_effectsSource is null)
         {
-            _effectsSource = this.gameObject.AddComponent<AudioSource>();
+            _effectsSource = gameObject.AddComponent<AudioSource>();
         }
     }
 
@@ -141,42 +185,6 @@ public class AudioManager : MonoBehaviour
         return _effectsSource is not null;
     }
     
-    /// <summary>
-    /// Selects and returns a clip based on enum param.
-    /// </summary>
-    /// <param name="sound"></param>
-    /// <returns></returns>
-    private AudioClip SelectClip(Sounds sound)
-    {
-        // Audio Clip -> Selection to play
-        AudioClip selection = null;
-
-        // Switch based on sound (select sound)
-        switch(sound)
-        {
-            case Sounds.First:
-            // Select audio ...
-            selection = null;
-            break;
-
-            case Sounds.Second:
-            // Select audio ...
-            selection = null;
-            break;
-
-            case Sounds.Third:
-            // Select audio ...
-            selection = null;
-            break;
-
-            default:
-            Debug.Log("Audio Manager: Sound selection invalid!");
-            break;
-        }
-
-        return selection;
-    }
-    
     #endregion
 
     #region Public Functions
@@ -185,7 +193,7 @@ public class AudioManager : MonoBehaviour
     /// Plays a single sound on a global scale (2D)
     /// </summary>
     /// <param name="sound">Which sound to play</param>
-    public void PlaySound2D(Sounds sound)
+    public void PlaySound2D(AudioClip _clip)
     {
         // End function -> Make sure the effects source is valid
         if(EffectSourceValid() is false)
@@ -193,18 +201,15 @@ public class AudioManager : MonoBehaviour
             return;
         }
 
-        // Audio Clip -> Selection to play
-        AudioClip selection = SelectClip(sound);
-
         // Make sure sound is valid
-        if(selection is null)
+        if(_clip is null)
         {
             Debug.Log("Audio Manager: Sound selection invalid!");
             return;
         }
 
         // Play sound
-        _effectsSource.clip = selection;
+        _effectsSource.clip = _clip;
         _effectsSource.loop = false;
         _effectsSource.Play();
     }
@@ -214,7 +219,7 @@ public class AudioManager : MonoBehaviour
     /// </summary>
     /// <param name="sound">Which sound to play</param>
     /// <param name="volume">Volume multiplier (0 -> 1)</param>
-    public void PlaySingleSound(Sounds sound, float volume = 1.0f)
+    public void PlaySingleSound(AudioClip _clip, float volume = 1.0f)
     {
         // End function -> Make sure the source is valid
         if(EffectSourceValid() is false)
@@ -222,11 +227,8 @@ public class AudioManager : MonoBehaviour
             return;
         }
 
-        // Audio Clip -> Selection to play
-        AudioClip selection = SelectClip(sound);
-
         // Play single audio
-        _effectsSource.PlayOneShot(selection, volume);
+        _effectsSource.PlayOneShot(_clip, volume);
         _effectsSource.loop = false;
     }
 
@@ -236,13 +238,10 @@ public class AudioManager : MonoBehaviour
     /// <param name="sound">Which sound to play</param>
     /// <param name="location">Location to play at</param>
     /// <param name="volume">Volume multiplier (0 -> 1)</param>
-    public void PlaySoundAtLocation(Sounds sound, Vector3 location, float volume = 1.0f)
+    public void PlaySoundAtLocation(AudioClip _clip, Vector3 location, float volume = 1.0f)
     {
-        // Audio Clip -> Selection to play
-        AudioClip selection = SelectClip(sound);
-
         // Play sound at location
-        AudioSource.PlayClipAtPoint(selection, location, volume);
+        AudioSource.PlayClipAtPoint(_clip, location, volume);
     }
 
     /// <summary>
@@ -282,6 +281,117 @@ public class AudioManager : MonoBehaviour
             return;
         }
     }
+
+
+    public void PlayUISound(SoundType type)
+    {
+        switch(type)
+        {
+            case SoundType.HandStamp:
+            PlaySingleSound(_stamp);
+            break;
+
+            case SoundType.ButtonClick:
+            PlaySingleSound(_button);
+            break;
+        }
+    }
+
+    public void PlayKarenSound(GameObject karen, bool isDamage = false)
+    {
+        AudioClip _clip;
+
+        if(isDamage)
+        {
+            _clip = _karenDamageSounds[Random.Range(0, _karenDamageSounds.Count - 1)];
+            PlaySoundAtLocation(_clip, karen.transform.position);
+            return;
+        }
+
+
+        _clip = _karenSounds[Random.Range(0, _karenSounds.Count - 1)];
+        PlaySoundAtLocation(_clip, karen.transform.position);
+    }
+
+    public void PlayWalkingSound(GameObject player)
+    {
+        AudioClip _clip = _walkingSounds[Random.Range(0, _walkingSounds.Count - 1)];
+        PlaySoundAtLocation(_clip, player.transform.position);
+    }
+
+    public void PlayDamageSound(GameObject damaged)
+    {
+        AudioClip _clip = _damageSounds[Random.Range(0, _damageSounds.Count - 1)];
+        PlaySoundAtLocation(_clip, damaged.transform.position);
+    }
+
+    public void PlayWeaponSound(WeaponType type)
+    {
+        List<AudioClip> sounds = new List<AudioClip>();
+
+        switch(type)
+        {
+            case WeaponType.Pan:
+            sounds = _panSounds;
+            break;
+
+            case WeaponType.Skateboard:
+            sounds = _skateboardSounds;
+            break;
+
+            case WeaponType.Toy:
+            sounds = _toySounds;
+            break;
+        }
+
+        AudioClip selection = sounds[Random.Range(0, sounds.Count - 1)];
+        PlaySingleSound(selection);
+    }
+
+    public void PlayItemSound()
+    {
+        AudioClip _clip = _itemSounds[Random.Range(0, _itemSounds.Count - 1)];
+        PlaySingleSound(_clip);
+    }
+
+    public void SetBackgroundFoley(FoleyType type)
+    {
+        switch(type)
+        {
+            case FoleyType.Supermarket:
+            _foleySource.clip = _supermarketFoley;
+            break;
+
+            case FoleyType.SubUrb:
+            _foleySource.clip = _suburbFoley;
+            break;
+
+            case FoleyType.SantaMonica:
+            _foleySource.clip = _pierFoley;
+            break;
+        }
+
+        _foleySource.loop = true;
+        _foleySource.Play();
+    }
+
+    public void SetBackgroundMusic(BackgroundMusicType type)
+    {
+        switch (type)
+        {
+            case BackgroundMusicType.Chill:
+            _musicSource.clip = _ingameMusic;
+            break;
+
+            case BackgroundMusicType.Rock:
+            _musicSource.clip = _menuMusic;
+            break;
+        }
+
+        _musicSource.loop = true;
+        _musicSource.Play();
+    }
+
 
     #endregion
 
