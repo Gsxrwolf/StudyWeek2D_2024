@@ -77,7 +77,13 @@ public class KarenBehavior : MonoBehaviour
     public void DealDamage(float _damage)
     {
         health -= _damage;
-        Debug.Log("GotDamaged");
+        Debug.LogError("Karen Damage"); // Wird nicht getriggert ????
+
+        // Pascal guck ma
+        if(_damage > 0)
+        {
+            AudioManager.Instance.PlayKarenSound(this.gameObject, true);
+        }
     }
 
     private void Die()

@@ -56,9 +56,9 @@ AudioSource:
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
-  BypassEffects: 0
+  BypassEffects: 1
   BypassListenerEffects: 0
-  BypassReverbZones: 0
+  BypassReverbZones: 1
   rolloffCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -211,7 +211,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: a0704351995607944986686a6f7eb848, type: 3}
   - {fileID: 8300000, guid: 6103b5ad2bb78084ca82c493ee6b0d6b, type: 3}
   - {fileID: 8300000, guid: db22c4a1fe0f8e74b9980ca1fdb9ca87, type: 3}
-  - {fileID: 8300000, guid: ab5d2300d43bbed40b90d67b56931466, type: 3}
   - {fileID: 8300000, guid: 805ec7e8921db174c8dd1db0de8aa1ad, type: 3}
   - {fileID: 8300000, guid: 8e7a71d7a0b40a7439508df5cfee32ce, type: 3}
   _karenDamageSounds:
@@ -414,7 +413,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 64
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500

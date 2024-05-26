@@ -105,6 +105,9 @@ public class Item : ItemBase
         }
 
 
+        AudioManager.Instance.PlayItemSound();
+
+
         gameObject.SetActive(false);
     }
 

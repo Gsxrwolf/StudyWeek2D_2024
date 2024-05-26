@@ -5,8 +5,13 @@ using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+
 public class PlayerController : MonoBehaviour
 {
+
+    public WeaponType type = WeaponType.Pan;
+    public LayerMask _rayIgnore;
+
     // Editor Settings
     [SerializeField] private float _health = 20;
     public float _damage = 2; // Public weil access für items
@@ -145,16 +150,39 @@ public class PlayerController : MonoBehaviour
     {
         if(_cooldown is false && _grounded)
         {
-            RaycastHit2D hit = Physics2D.Raycast(_spriteRenderer.flipY ? Vector3.left + transform.position : Vector3.right + transform.position , _spriteRenderer.flipY ? Vector3.left : Vector3.right, _attackRange);
-            Debug.DrawLine(transform.position, hit.point,Color.magenta,1f);
+            Vector3 direction = new Vector3();
+
+            if(_spriteRenderer.flipX)
+            {
+                direction = Vector3.left;
+            }
+            else
+            {
+                direction = Vector3.right;
+            }
+
+            //RaycastHit2D hit = Physics2D.Raycast(_spriteRenderer.flipY ? Vector3.left + transform.position : Vector3.right + transform.position , _spriteRenderer.flipY ? Vector3.left : Vector3.right, _attackRange);
+            //Debug.DrawLine(transform.position, hit.point,Color.magenta,1f);
+
+            RaycastHit2D hit = Physics2D.Raycast(gameObject.transform.position, direction, _attackRange, _rayIgnore);
+            Debug.DrawRay(gameObject.transform.position, direction * _attackRange, Color.magenta, 2);
+
+
+
             if (hit.collider != null)
             {
+                Debug.Log(hit.collider.name);
+
                 if (hit.collider.CompareTag(_karenTag))
                 {
                     hit.collider.gameObject.GetComponent<KarenBehavior>().DealDamage(_damage);
+
+                    Debug.LogWarning("DMG");
+
+
+                    //AudioManager.Instance.PlayWeaponSound(type);
                 }
             }
-            Debug.Log("Attack");
 
             // Animation
             _animator.SetTrigger("Attack");
@@ -175,6 +203,12 @@ public class PlayerController : MonoBehaviour
         _health -= _damage;
         OnHealthChange?.Invoke((int)_health);
         Debug.Log("GotDamaged");
+
+
+        if(_damage > 0)
+        {
+            AudioManager.Instance.PlayDamageSound();
+        }
     }
 
     private void Die()

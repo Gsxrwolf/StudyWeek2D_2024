@@ -29,6 +29,7 @@ public enum FoleyType
 
 public enum BackgroundMusicType
 {
+    None,
     Chill,
     Rock
 }
@@ -86,6 +87,9 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private List<AudioClip> _panSounds = new List<AudioClip>();
     [SerializeField] private List<AudioClip> _skateboardSounds = new List<AudioClip>();
     [SerializeField] private List<AudioClip> _toySounds = new List<AudioClip>();
+
+
+    private BackgroundMusicType _currentType;
 
     #endregion
 
@@ -304,25 +308,25 @@ public class AudioManager : MonoBehaviour
         if(isDamage)
         {
             _clip = _karenDamageSounds[Random.Range(0, _karenDamageSounds.Count - 1)];
-            PlaySoundAtLocation(_clip, karen.transform.position);
+            PlaySingleSound(_clip);
             return;
         }
 
 
         _clip = _karenSounds[Random.Range(0, _karenSounds.Count - 1)];
-        PlaySoundAtLocation(_clip, karen.transform.position);
+        PlaySingleSound(_clip);
     }
 
-    public void PlayWalkingSound(GameObject player)
+    public void PlayWalkingSound()
     {
         AudioClip _clip = _walkingSounds[Random.Range(0, _walkingSounds.Count - 1)];
-        PlaySoundAtLocation(_clip, player.transform.position);
+        PlaySingleSound(_clip);
     }
 
-    public void PlayDamageSound(GameObject damaged)
+    public void PlayDamageSound()
     {
         AudioClip _clip = _damageSounds[Random.Range(0, _damageSounds.Count - 1)];
-        PlaySoundAtLocation(_clip, damaged.transform.position);
+        PlaySingleSound(_clip);
     }
 
     public void PlayWeaponSound(WeaponType type)
@@ -377,19 +381,30 @@ public class AudioManager : MonoBehaviour
 
     public void SetBackgroundMusic(BackgroundMusicType type)
     {
-        switch (type)
+        if(type == _currentType)
         {
-            case BackgroundMusicType.Chill:
-            _musicSource.clip = _ingameMusic;
-            break;
-
-            case BackgroundMusicType.Rock:
-            _musicSource.clip = _menuMusic;
-            break;
+            Debug.Log("BEEEEP");
+            Debug.Log(_currentType);
+            return;
         }
+        else
+        {
+            switch (type)
+            {
+                case BackgroundMusicType.Chill:
+                _musicSource.clip = _menuMusic;
+                break;
 
-        _musicSource.loop = true;
-        _musicSource.Play();
+                case BackgroundMusicType.Rock:
+                _musicSource.clip = _ingameMusic;
+                break;
+            }
+
+            _currentType = type;
+            _musicSource.loop = true;
+            _musicSource.volume = .25f;
+            _musicSource.Play();
+        }
     }
 
 

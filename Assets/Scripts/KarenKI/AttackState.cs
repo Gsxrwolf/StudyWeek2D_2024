@@ -35,6 +35,7 @@ public class AttackState : State
             {
                 Debug.Log("KarenDoDamage");
                 hit.collider.gameObject.GetComponent<PlayerController>().DealDamage(damage);
+                AudioManager.Instance.PlayKarenSound(this.gameObject);
             }
         }
         Invoke("EndAttack", attackCooldown);
