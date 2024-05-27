@@ -55,7 +55,7 @@ public class GameManager : MonoBehaviour
             case 3:
                 {
                     saveFile.currentLevel = 0;
-                    saveFile.currentDifficulty += 5;
+                    saveFile.currentDifficulty += 3;
                     SceneLoader.Instance.LoadScene(MyScenes.Lvl1);
                     break;
                 }

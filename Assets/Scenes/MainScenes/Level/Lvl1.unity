@@ -709,7 +709,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8906499296886523739, guid: 74cbfb0b7731a9847b324e14d201aa87, type: 3}
       propertyPath: maxEnemyAmount
-      value: 2
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8906499296886523739, guid: 74cbfb0b7731a9847b324e14d201aa87, type: 3}
       propertyPath: nextLevelIndex
