@@ -161,7 +161,7 @@ public class PlayerController : MonoBehaviour
                 direction = Vector3.right;
             }
 
-            RaycastHit2D hit = Physics2D.Raycast(_spriteRenderer.flipY ? Vector3.left + transform.position : Vector3.right + transform.position , _spriteRenderer.flipY ? Vector3.left : Vector3.right, _attackRange);
+            RaycastHit2D hit = Physics2D.Raycast(_spriteRenderer.flipX ? Vector3.left + transform.position : Vector3.right + transform.position , _spriteRenderer.flipX ? Vector3.left : Vector3.right, _attackRange);
             Debug.DrawLine(transform.position, hit.point,Color.magenta,1f);
 
             //RaycastHit2D hit = Physics2D.Raycast(gameObject.transform.position, direction, _attackRange, _rayIgnore);
