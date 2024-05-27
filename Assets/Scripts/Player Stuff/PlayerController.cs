@@ -1,8 +1,5 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -131,7 +128,7 @@ public class PlayerController : MonoBehaviour
 
 
         // If the player moves to the right
-        if(_horizontal == 1.0f)
+        if (_horizontal == 1.0f)
         {
             // No Flip
             _spriteRenderer.flipX = false;
@@ -139,7 +136,7 @@ public class PlayerController : MonoBehaviour
         }
 
         // if the player moves to the left
-        if(_horizontal == -1.0f)
+        if (_horizontal == -1.0f)
         {
             // Flip
             _spriteRenderer.flipX = true;
@@ -149,11 +146,11 @@ public class PlayerController : MonoBehaviour
 
     public void Attack(InputAction.CallbackContext context)
     {
-        if(_cooldown is false && _grounded)
+        if (_cooldown is false && _grounded)
         {
             Vector3 direction = new Vector3();
 
-            if(_spriteRenderer.flipX)
+            if (_spriteRenderer.flipX)
             {
                 direction = Vector3.left;
             }
@@ -162,8 +159,8 @@ public class PlayerController : MonoBehaviour
                 direction = Vector3.right;
             }
 
-            RaycastHit2D hit = Physics2D.Raycast(_spriteRenderer.flipX ? Vector3.left + transform.position : Vector3.right + transform.position , _spriteRenderer.flipX ? Vector3.left : Vector3.right, _attackRange);
-            Debug.DrawLine(transform.position, hit.point,Color.magenta,1f);
+            RaycastHit2D hit = Physics2D.Raycast(_spriteRenderer.flipX ? Vector3.left + transform.position : Vector3.right + transform.position, _spriteRenderer.flipX ? Vector3.left : Vector3.right, _attackRange);
+            Debug.DrawLine(transform.position, hit.point, Color.magenta, 1f);
 
             //RaycastHit2D hit = Physics2D.Raycast(gameObject.transform.position, direction, _attackRange, _rayIgnore);
             //Debug.DrawRay(gameObject.transform.position, direction * _attackRange, Color.magenta, 2);
@@ -197,7 +194,7 @@ public class PlayerController : MonoBehaviour
     {
         if (context.started)
         {
-            if( GameManager.Instance.gamePaused)
+            if (GameManager.Instance.gamePaused)
             {
                 GameManager.Instance.UnpauseGame();
             }
@@ -205,7 +202,7 @@ public class PlayerController : MonoBehaviour
             {
                 GameManager.Instance.PauseGame();
             }
-             
+
         }
     }
 
@@ -223,7 +220,7 @@ public class PlayerController : MonoBehaviour
         Debug.Log("GotDamaged");
 
 
-        if(_damage > 0)
+        if (_damage > 0)
         {
             AudioManager.Instance.PlayDamageSound();
         }
