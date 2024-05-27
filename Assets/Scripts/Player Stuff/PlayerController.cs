@@ -161,11 +161,11 @@ public class PlayerController : MonoBehaviour
                 direction = Vector3.right;
             }
 
-            //RaycastHit2D hit = Physics2D.Raycast(_spriteRenderer.flipY ? Vector3.left + transform.position : Vector3.right + transform.position , _spriteRenderer.flipY ? Vector3.left : Vector3.right, _attackRange);
-            //Debug.DrawLine(transform.position, hit.point,Color.magenta,1f);
+            RaycastHit2D hit = Physics2D.Raycast(_spriteRenderer.flipY ? Vector3.left + transform.position : Vector3.right + transform.position , _spriteRenderer.flipY ? Vector3.left : Vector3.right, _attackRange);
+            Debug.DrawLine(transform.position, hit.point,Color.magenta,1f);
 
-            RaycastHit2D hit = Physics2D.Raycast(gameObject.transform.position, direction, _attackRange, _rayIgnore);
-            Debug.DrawRay(gameObject.transform.position, direction * _attackRange, Color.magenta, 2);
+            //RaycastHit2D hit = Physics2D.Raycast(gameObject.transform.position, direction, _attackRange, _rayIgnore);
+            //Debug.DrawRay(gameObject.transform.position, direction * _attackRange, Color.magenta, 2);
 
 
 
@@ -180,7 +180,7 @@ public class PlayerController : MonoBehaviour
                     Debug.LogWarning("DMG");
 
 
-                    //AudioManager.Instance.PlayWeaponSound(type);
+                    AudioManager.Instance.PlayWeaponSound(type);
                 }
             }
 
