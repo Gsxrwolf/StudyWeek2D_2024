@@ -22,7 +22,6 @@ public class IngameMapping : MonoBehaviour
         PlayerController.OnHealthChange += NewHealth;
         ItemEvents.BuffStarted += ShowBuffs;
         ItemEvents.BuffEnd += HideBuffs;
-        
     }
 
     private void OnDisable()

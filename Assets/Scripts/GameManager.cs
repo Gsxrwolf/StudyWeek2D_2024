@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
 
     public SaveFile saveFile;
     string filePath;
+    public bool gamePaused = false;
 
     private void Start()
     {
@@ -51,6 +52,13 @@ public class GameManager : MonoBehaviour
                     SceneLoader.Instance.LoadScene(MyScenes.Lvl3);
                     break;
                 }
+            case 3:
+                {
+                    saveFile.currentLevel = 0;
+                    saveFile.currentDifficulty += 5;
+                    SceneLoader.Instance.LoadScene(MyScenes.Lvl1);
+                    break;
+                }
         }
         SceneLoader.Instance.LoadScene(MyScenes.IngameUI, UnityEngine.SceneManagement.LoadSceneMode.Additive);
     }
@@ -75,5 +83,18 @@ public class GameManager : MonoBehaviour
                 JsonUtility.FromJsonOverwrite(data, saveFile);
             }
         }
+    }
+
+    public void PauseGame()
+    {
+        Time.timeScale = 0;
+        gamePaused = true;
+        SceneLoader.Instance.LoadScene(MyScenes.PauseUI, UnityEngine.SceneManagement.LoadSceneMode.Additive);
+    }
+    public void UnpauseGame()
+    {
+        Time.timeScale = 1;
+        gamePaused = false;
+        SceneLoader.Instance.UnloadScene(MyScenes.PauseUI);
     }
 }

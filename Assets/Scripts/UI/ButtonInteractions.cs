@@ -31,8 +31,10 @@ public class ButtonInteractions : MonoBehaviour
     public void OnQuitClick()
     {
         AudioManager.Instance.PlayUISound(SoundType.ButtonClick);
-
+#if UNITY_EDITOR
         EditorApplication.ExitPlaymode();
+#endif
+        Application.Quit();
         GameManager.Instance.Save();
     }
 
@@ -40,6 +42,7 @@ public class ButtonInteractions : MonoBehaviour
     {
         SceneLoader.Instance.LoadScene(MyScenes.MainMenu);
         SceneLoader.Instance.UnloadScene(MyScenes.IngameUI);
+        GameManager.Instance.UnpauseGame();
         GameManager.Instance.Save();
 
         AudioManager.Instance.PlayUISound(SoundType.ButtonClick);

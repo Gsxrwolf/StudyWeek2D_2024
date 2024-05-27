@@ -77,7 +77,7 @@ public class KarenBehavior : MonoBehaviour
     public void DealDamage(float _damage)
     {
         health -= _damage;
-        Debug.LogError("Karen Damage"); // Wird nicht getriggert ????
+        Debug.Log("Karen Damage"); // Wird nicht getriggert ????
 
         // Pascal guck ma
         if(_damage > 0)

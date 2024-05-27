@@ -436,6 +436,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7f008c9046d9ea4e940ed0184deb0a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
+  _rayIgnore:
+    serializedVersion: 2
+    m_Bits: 0
   _health: 10
   _damage: 2
   _speed: 100
@@ -522,6 +526,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 63724ebb-5344-4033-be53-f52d796edc52
     m_ActionName: Player Mapping/Attack[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5928986617893515986}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: Pausegame
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 27ae9d20-9495-413e-a4fc-e8ee81990467
+    m_ActionName: Player Mapping/Pause[/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player Mapping

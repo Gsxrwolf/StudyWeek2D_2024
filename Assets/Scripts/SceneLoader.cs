@@ -12,7 +12,8 @@ public enum MyScenes
     Lvl3,
     WinScreen, 
     LooseScreen,
-    IngameUI
+    IngameUI,
+    PauseUI
 }
 public class SceneLoader : MonoBehaviour
 {
@@ -38,11 +39,11 @@ public class SceneLoader : MonoBehaviour
     }
     public void LoadScene(MyScenes scene, LoadSceneMode _loadSceneMode = LoadSceneMode.Single)
     {
-        SceneManager.LoadScene((int)scene, _loadSceneMode);
+        SceneManager.LoadSceneAsync((int)scene, _loadSceneMode);
     }
     public void UnloadScene(MyScenes scene)
     {
-        if (SceneManager.GetSceneByName(scene.ToString()).isLoaded)
+        if (SceneManager.GetSceneByName(scene.ToString()).isLoaded || SceneManager.GetSceneByName(scene.ToString()).isSubScene)
         {
             SceneManager.UnloadSceneAsync((int)scene);
         }

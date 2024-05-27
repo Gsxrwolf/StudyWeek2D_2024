@@ -4,6 +4,6 @@ using UnityEngine;
 public class SaveFile : ScriptableObject
 {
     public int currentLevel;
-
+    public int currentDifficulty;
 
 }

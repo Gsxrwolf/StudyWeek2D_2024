@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -191,6 +192,23 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(AttackCooldown());
         }
     }
+
+    public void Pausegame(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            if( GameManager.Instance.gamePaused)
+            {
+                GameManager.Instance.UnpauseGame();
+            }
+            else
+            {
+                GameManager.Instance.PauseGame();
+            }
+             
+        }
+    }
+
     private void CheckHealth()
     {
         if (_health <= 0)

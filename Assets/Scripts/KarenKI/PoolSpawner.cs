@@ -14,7 +14,7 @@ public class PoolSpawner : MonoBehaviour
 
     [SerializeField] int enemyStartAmount;
     [SerializeField] int enemyRefillAmount;
-    [SerializeField] int maxEnemyAmount;
+    [SerializeField] int maxEnemyAmount = 2;
 
     [SerializeField] Vector3 cachePosition;
 
@@ -34,6 +34,7 @@ public class PoolSpawner : MonoBehaviour
     {
         if (!endless)
         {
+            maxEnemyAmount += GameManager.Instance.saveFile.currentDifficulty;
             enemyStartAmount = maxEnemyAmount;
             enemyRefillAmount = 0;
         }
